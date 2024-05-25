@@ -1,0 +1,22 @@
+ITEM.name = "Assaultron Chassis MK II"
+ITEM.model = "models/thespireroleplay/items/clothes/group012.mdl"
+ITEM.description = "The reinforced and heavily armored chassis of an Assaultron."
+ITEM.longdesc = "A set of reinforced metal plating placed on the exterior of an Assaultron. The armor is reinforced and designed for intense close quarters combat."
+ITEM.width = 2
+ITEM.height = 1
+ITEM.price = 230000
+ITEM.flag = "A"
+ITEM.isArmor = true
+ITEM.isBodyArmor = true
+ITEM.noBusiness = true
+ITEM.isHelmet = true 
+ITEM.isGasmask = true
+ITEM.dT = 18
+ITEM.eT = 14
+ITEM.dR = 20
+ITEM.newSkin = 0
+ITEM.weightClass = 1
+ITEM.bodyGroups = {
+["outfit"] = 0,
+}
+ITEM.bodygroupsub = {0}
