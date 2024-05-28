@@ -11,6 +11,7 @@ ITEM.quantity = 1
 ITEM.sound = "fosounds/fix/npc_human_using_stimpak.mp3"
 ITEM.weight = 0.05
 ITEM.duration = 8
+ITEM.addictionChance = 15
 
 ITEM.functions.use = {
 	name = "Use",
@@ -23,6 +24,7 @@ ITEM.functions.use = {
 
 		curplayer:SetChardrboost(curplayer:GetChardrboost() + 25)
 		curplayer:SetData("usingMedX", true)
+		curplayer:DrugHandler(item.player, "Medx", item.addictionChance)
 
 		quantity = quantity - 1
 		if (quantity >= 1) then
@@ -35,6 +37,7 @@ ITEM.functions.use = {
 			curplayer:GetPlayer():NewVegasNotify(item.name .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
 			curplayer:SetData("usingMedX", false)
+			curplayer:ReapplyAddiction(curplayer:GetPlayer(), "Medx")
 
 		end)
 

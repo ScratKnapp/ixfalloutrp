@@ -30,12 +30,14 @@ ITEM.functions.use = {
 		item.player:NewVegasNotify("Restored " .. item.heal .. " health.", "messageNeutral", 4)
 		curplayer:BuffStat("stimpaksickness", "endurance", -1)
 		curplayer:BuffStat("stimpaksickness", "agility", -1)
+		curplayer:SetData("usingSuperStimpak", true)
 
 		timer.Create(item.name, item.duration, 1, function() 
 			curplayer:RemoveBuff("stimpaksickness", "endurance")
 			curplayer:RemoveBuff("stimpaksickness", "agility")
 			curplayer:GetPlayer():NewVegasNotify(item.name .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
+			curplayer:SetData("usingSuperStimpak", false)
 		end)
 
 			timer.Pause(item.name)
@@ -55,10 +57,15 @@ ITEM.functions.use = {
 	
 
 	OnCanRun = function(item)
-		return (!IsValid(item.entity))
+		curplayer = item.player:GetCharacter()
+		
+		if (curplayer:GetData("usingSuperStimpak")) then 
+			return false
+		else 
+			return (!IsValid(item.entity))
+		end 
 	end
 }
-
 
 
 function ITEM:GetDescription()

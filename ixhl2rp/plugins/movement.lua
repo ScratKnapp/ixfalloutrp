@@ -58,11 +58,11 @@ ix.command.Add( "rangefinder", {
         str = str .. "Distance to point: " .. distance .. "m"
         local range
         
-        if distance < 10 then range = "Short"
-        elseif distance > 9 and distance < 29 then range = "Medium"
-        elseif distance > 29 and distance < 49 then range = "Long"
-        elseif distance > 49 and distance < 89 then range = "Very Long"
-        elseif distance > 89 then range = "Extreme"
+        if distance < 15 then range = "Short"
+        elseif distance > 15 and distance < 44 then range = "Medium"
+        elseif distance > 44 and distance < 74 then range = "Long"
+        elseif distance > 74 and distance < 125 then range = "Very Long"
+        elseif distance > 125 then range = "Extreme"
         end 
 
         str = str .. "\nRange: " .. range

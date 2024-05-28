@@ -28,10 +28,10 @@ function ENT:OnTakeDamage(dmgInfo)
 end
 
 local weapons = {
-    "rifle",
-    "heavy",
-    "launcher",
-    "melee"
+    "models/fallout/weapons/c_gatlinglaser.mdl",
+    "models/fallout/weapons/c_plasmacaster.mdl",
+    "models/fallout/weapons/w_supersledge.mdl",
+    "models/fallout/weapons/w_missilelauncher.mdl"
 }
 
 
@@ -122,8 +122,9 @@ if (SERVER) then
     function ENT:CustomInitialize()
 
         local chosenweapon = table.Random(weapons)
+        self:SetCEntWeaponModel(chosenweapon)
 
-        if string.find(chosenweapon, "heavy") then
+        if string.find(chosenweapon, "caster") or string.find(chosenweapon, "gatling") then
             self.IdleAnim = "2hhaim"
             self.AttackAnim = "2hhaim"
             self.RunAnim = "2hhaim_run"

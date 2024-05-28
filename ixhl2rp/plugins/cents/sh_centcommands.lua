@@ -778,7 +778,7 @@ ix.command.Add("CentDamage", {
                 if damage < 0 then damage = 0 end
             end 
 
-            local minimumdamage = math.ceil(damage * 0.15)
+            local minimumdamage = math.ceil(damage * 0.20)
 
             if dt ~= 0 then 
                 damage = damage - dt

@@ -25,12 +25,15 @@ ITEM.functions.use = {
 		duration = item.duration
 		curplayer:BuffStat("rebound", "agility", 1)
 		curplayer:SetData("usingRebound", true)
+		curplayer:DrugHandler(item.player, "Jet", item.addictionChance)
 
 		timer.Create(item.name, item.duration, 1, function() 
 			curplayer:RemoveBuff("rebound", "agility")
 			curplayer:GetPlayer():NewVegasNotify(item.name .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
 			curplayer:SetData("usingRebound", true)
+			curplayer:ReapplyAddiction(curplayer:GetPlayer(), "Jet")
+
 		end)
 
 		timer.Pause(item.name)

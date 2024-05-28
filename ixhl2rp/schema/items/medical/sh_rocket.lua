@@ -11,6 +11,7 @@ ITEM.quantity = 1
 ITEM.sound = "fosounds/fix/npc_human_using_jet.mp3"
 ITEM.weight = 0.05
 ITEM.duration = 5
+ITEM.addictionChance = 30
 
 ITEM.functions.use = {
 	name = "Use",
@@ -27,15 +28,17 @@ ITEM.functions.use = {
 		local duration = item.duration
         curplayer:SetCharapboost(curplayer:GetCharapboost() + 2)
 		curplayer:AddSkillBoost("rocket", "evasion", 10)
-		curplayer:SetData("usingRocket", true)
+		curplayer:SetData("usingJet", true)
+		curplayer:DrugHandler(item.player, "Jet", item.addictionChance)
 
 
 		timer.Create(item.name, item.duration, 1, function() 
-		        curplayer:RemoveSkillBoost("rocket", "evasion")
+		    curplayer:RemoveSkillBoost("rocket", "evasion")
 			curplayer:SetCharapboost(curplayer:GetCharapboost() - 2)
 			curplayer:GetPlayer():NewVegasNotify(item.name .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
-			curplayer:SetData("usingRocket", false)
+			curplayer:SetData("usingJet", false)
+			curplayer:ReapplyAddiction(curplayer:GetPlayer(), "Jet")
 		end)
 
 
@@ -50,7 +53,7 @@ ITEM.functions.use = {
 	OnCanRun = function(item)
 		curplayer = item.player:GetCharacter()
 		
-		if (curplayer:GetData("usingRocket")) then 
+		if (curplayer:GetData("usingJet")) then 
 			return false
 		else 
 			return (!IsValid(item.entity))

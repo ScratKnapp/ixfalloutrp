@@ -512,6 +512,10 @@ ix.command.Add("Damage", {
         local dr = player:GetTotalCharDr()
         local hp = player:GetTotalCharHp()
         local luck = target:GetAttribute("luck")
+
+        local isPowerArmored = target:GetData("inPowerArmor", false)
+
+
        
 
         -- Format entries so that they're ready to work with - lowercase damtype, chop off any decimal points
@@ -519,7 +523,6 @@ ix.command.Add("Damage", {
         local damage = damage - (damage % 1)
         if (ap) then local ap = ap - (ap % 1) else ap = 0 end
 
-        dr = dr - ap
     
         -- Ballistic weapons, blasts, and melee
         if damtype == "physical" then
@@ -537,7 +540,7 @@ ix.command.Add("Damage", {
                 player:Notify("Your DR reduces the damage by " .. dr .. "%!")
             end 
 
-            local minimumdamage = math.ceil(damage * 0.15)
+            local minimumdamage = math.ceil(damage * 0.20)
 
             if dt ~= 0 then 
                 damage = damage - dt
@@ -547,6 +550,9 @@ ix.command.Add("Damage", {
 
             if damage < minimumdamage then
                 damage = minimumdamage
+
+                if isPowerArmored then damage = math.ceil(damage/2) end
+
                 client:Notify(target:GetName() .. " has taken " .. damage .. " minimum physical damage!")
                 player:Notify("You take " .. damage  .. " minimum damage!")
                 player:AdjustHealth("hurt", damage)
@@ -573,7 +579,7 @@ ix.command.Add("Damage", {
                 player:Notify("Your DR reduces the damage by " .. dr .. "%!")
             end 
 
-            local minimumdamage = math.ceil(damage * 0.15)
+            local minimumdamage = math.ceil(damage * 0.20)
 
             if et ~= 0 then 
                 damage = damage - et
@@ -583,11 +589,14 @@ ix.command.Add("Damage", {
 
             if damage < minimumdamage then
                 damage = minimumdamage
-                client:Notify(target:GetName() .. " has taken " .. damage .. " minimum physical damage!")
+
+               -- if isPowerArmored == true then damage = math.ceil(damage/2) player:Notify("In power armor") end
+
+                client:Notify(target:GetName() .. " has taken " .. damage .. " minimum energy damage!")
                 player:Notify("You take " .. damage  .. " minimum damage!")
                 player:AdjustHealth("hurt", damage)
             else 
-                client:Notify(target:GetName() .. " has taken " .. damage .. " physical damage, piercing their armor.")
+                client:Notify(target:GetName() .. " has taken " .. damage .. " energy damage, piercing their armor.")
                 player:Notify("You take " .. damage  .. " damage! Your armor is pierced.")
                 player:AdjustHealth("hurt", damage)
                -- player:DamageArmor(target, 1)
@@ -670,12 +679,21 @@ ix.command.Add("ResetStats", {
         char:SetData("usingJet", false)
         char:SetData("usingMedX", false)
         char:SetData("usingBuffout", false)
+        char:SetData("usingRocket", false)
+        char:SetData("usingPsycho", false)
+        char:SetData("usingRebound", false)
+        char:SetData("usingHydra", false)
+        char:SetData("usingHealingpowder", false)
+        char:SetData("usingHealingpoultice", false)
+        char:SetData("usingCigarette", false)
+        char:SetData("usingMentats", false)
+        char:SetData("usingSuperStimpak", false)
 
         local boosts = char:GetBoosts()
 
 		for attribID, v in pairs(boosts) do
 			for boostID, _ in pairs(v) do
-				item.player:GetCharacter():RemoveBuff(boostID, attribID)
+				char:RemoveBuff(boostID, attribID)
 			end
 		end
 

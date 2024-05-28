@@ -11,6 +11,7 @@ ITEM.quantity = 1
 ITEM.sound = "fosounds/fix/npc_human_using_jet.mp3"
 ITEM.weight = 0.05
 ITEM.duration = 6
+ITEM.addictionChance = 15
 
 ITEM.functions.use = {
 	name = "Smoke",
@@ -26,13 +27,15 @@ ITEM.functions.use = {
 		curplayer:BuffStat("cigarette", "endurance", 1)
 		curplayer:BuffStat("cigarette", "charisma", 1)
 		curplayer:SetData("usingCigarette", true)
+		curplayer:DrugHandler(item.player, "Nicotine", item.addictionChance)
 
-		timer.Simple(duration, function() 
+		timer.Create(item.name, item.duration, 1, function()  
 			curplayer:RemoveBuff("cigarette", "charisma")
 			curplayer:RemoveBuff("cigarette", "endurance")
 			curplayer:GetPlayer():NewVegasNotify(item.name .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
 			curplayer:SetData("usingCigarette", false)
+			curplayer:ReapplyAddiction(curplayer:GetPlayer(), "Nicotine")
 		end)
 
 			timer.Pause(item.name)

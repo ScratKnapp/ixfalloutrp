@@ -11,6 +11,7 @@ ITEM.quantity = 1
 ITEM.sound = "fosounds/fix/npc_human_eating_mentats.mp3"
 ITEM.weight = 0.05
 ITEM.duration = 7
+ITEM.addictionChance = 15
 
 ITEM.functions.use = {
 	name = "Use",
@@ -28,6 +29,8 @@ ITEM.functions.use = {
 		curplayer:BuffStat("partytimementats", "perception", 2)
 		curplayer:BuffStat("partytimementats", "intelligence", 2)
 		curplayer:BuffStat("partytimementats", "charisma", 4)
+		curplayer:SetData("usingMentats", true)
+		curplayer:DrugHandler(item.player, "Mentats", item.addictionChance)
 
 		timer.Create(item.name, item.duration, 1, function()
 			curplayer:RemoveBuff("partytimementats", "perception")
@@ -35,6 +38,8 @@ ITEM.functions.use = {
 			curplayer:RemoveBuff("partytimementats", "charisma")
 			curplayer:GetPlayer():NewVegasNotify(item.name .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
+			curplayer:SetData("usingMentats", false)
+			curplayer:ReapplyAddiction(curplayer:GetPlayer(), "Mentats")
 		end)
 
 			timer.Pause(item.name)
@@ -53,7 +58,13 @@ ITEM.functions.use = {
 		end,
 
 	OnCanRun = function(item)
-		return (!IsValid(item.entity))
+		curplayer = item.player:GetCharacter()
+		
+		if (curplayer:GetData("usingMentats")) then 
+			return false
+		else 
+			return (!IsValid(item.entity))
+		end
 	end
 }
 

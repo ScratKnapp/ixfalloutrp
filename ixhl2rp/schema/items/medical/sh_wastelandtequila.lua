@@ -10,7 +10,8 @@ ITEM.flag = "1"
 ITEM.quantity = 1
 ITEM.sound = "fosounds/fix/npc_humandrinking_soda_01.mp3"
 ITEM.weight = 0.05
-ITEM.duration = 9000
+ITEM.duration = 6
+ITEM.addictionChance = 10
 
 ITEM.functions.use = {
 	name = "Use",
@@ -30,14 +31,16 @@ ITEM.functions.use = {
 		curplayer:BuffStat("wastelandtequila", "strength", 2)
 		curplayer:BuffStat("wastelandtequila", "charisma", 1)
 		curplayer:BuffStat("wastelandtequila", "intelligence", -2)
+		curplayer:DrugHandler(item.player, "Alcohol", item.addictionChance)
 
 
 		timer.Create(item.name, item.duration, 1, function() 
 		curplayer:RemoveBuff("wastelandtequila", "strength")
 		curplayer:RemoveBuff("wastelandtequila", "charisma")
 		curplayer:RemoveBuff("wastelandtequila", "intelligence")
-			curplayer:GetPlayer():NewVegasNotify(item.name .. " has worn off.", "messageNeutral", 8)
-			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
+		curplayer:GetPlayer():NewVegasNotify(item.name .. " has worn off.", "messageNeutral", 8)
+		curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
+		curplayer:ReapplyAddiction(curplayer:GetPlayer(), "Alcohol")
 		end)
 
 			timer.Pause(item.name)

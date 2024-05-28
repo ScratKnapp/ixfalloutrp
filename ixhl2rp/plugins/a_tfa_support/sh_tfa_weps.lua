@@ -742,6 +742,35 @@ PLUGIN.GunData["aus_w_cowboyrepeater"] = {
 	}
 }
 
+PLUGIN.GunData["tfa_k9000"] = {
+	BlackList = false,
+	ID = "cyberdoggun",
+	Name = "K-9000 Cyberdog Gun",
+	conditionDrainFactor = 1,
+	Desc = "A very, very peculiar weapon. Loaded and fired like a tri-barrel minigun by .357 magnum of all things, with a live cyberdog brain tank to aid in detection of foes. Truly, there is no better example of what unregulated SCIENCE!! can make.",
+	Model = "models/props_fallout/cyberdoggun.mdl",
+	Width = 4,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 3,
+	Weight = 4,
+	Price = 2000,
+	condition = 100,
+	strengthReq = 8,
+	
+	Prim = {
+		Ammo = "357magnumammo",
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+
 
 --=== .44 Magnum ===--
 PLUGIN.GunData["aus_w_44magnum"] = {
@@ -875,7 +904,7 @@ PLUGIN.GunData["aus_w_servicerifle"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
-	strengthReq = 6,
+	strengthReq = 5,
 	Prim = {
 		Ammo = "127mmammo",
 		ClipSize = 10
@@ -1553,7 +1582,7 @@ PLUGIN.GunData["aus_w_huntingrifle"] = {
 PLUGIN.GunData["tfa_hunting_rifle_s"] = {
 	BlackList = false,
 	ID = "huntingriflescoped",
-	Name = "Hunting Rifle",
+	Name = "Scoped Hunting Rifle",
 	conditionDrainFactor = 0.9,
 	Desc = "A bolt action hunting rifle used for taking down big game, but also employed by many militaries or gangs due to its ease of use and stopping power. This one has been fitted with a scope to further enhance its long distance capability." ,
 	Slot = "primary",
@@ -1612,6 +1641,34 @@ PLUGIN.GunData["aus_w_sniperrifle"] = {
 	Name = "Sniper Rifle",
 	conditionDrainFactor = 0.9,
 	Desc = "The DKS-501 Sniper Rifle was the US Army's standard sniper rifle before the war, and enjoys success by more elite units or fortunate wastelanders due to its near unrivaled ability to land several accurate shots in short periods over long distances." ,
+	Slot = "primary",
+	Model = "models/illusion/fwp/w_sniperrifle.mdl",
+	Width = 4,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 1,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	strengthReq = 6,
+	Prim = {
+		Ammo = "308ammo",
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+PLUGIN.GunData["tfa_sniper_rifle_sup"] = {
+	BlackList = false,
+	ID = "suppressedsniperrifle",
+	Name = "Suppressed Sniper Rifle",
+	conditionDrainFactor = 0.9,
+	Desc = "The DKS-501 Sniper Rifle was the US Army's standard sniper rifle before the war, and enjoys success by more elite units or fortunate wastelanders due to its near unrivaled ability to land several accurate shots in short periods over long distances. This one has a noise-reducing suppressor attached." ,
 	Slot = "primary",
 	Model = "models/illusion/fwp/w_sniperrifle.mdl",
 	Width = 4,
@@ -1723,14 +1780,43 @@ PLUGIN.GunData["aus_w_gauss"] = {
 
 
 --=== 40mm Grenade ===--
-PLUGIN.GunData["aus_w_launcher_nade"] = {
+
+PLUGIN.GunData["tfa_grenade_rifle"] = {
+	BlackList = false,
+	ID = "grenaderifle",
+	Name = "Grenade Rifle",
+	conditionDrainFactor = 1,
+	Desc = "A single-shot grenade launcher, used by some well-armed groups for indirect fire support." ,
+	Slot = "primary",
+	Model = "models/weapons/tfa_fallout/w_fallout_single_grenade_launcher.mdl",
+	Width = 4,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 1,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	strengthReq = 3,
+	Prim = {
+		Ammo = "40mmammo",
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+PLUGIN.GunData["tfa_grenade_launcher"] = {
 	BlackList = false,
 	ID = "grenadelauncher",
 	Name = "Grenade Launcher",
-	conditionDrainFactor = 1,
-	Desc = "A single-shot 40mm grenade launcher, not that common outside of certain well-armed groups but prized by many for its indirect fire capability." ,
+	conditionDrainFactor = 5,
+	Desc = "A four-shot grenade launcher, capable of laying down some heavy fire on an area." ,
 	Slot = "primary",
-	Model = "models/halokiller38/fallout/weapons/explosives/grenaderifle.mdl",
+	Model = "models/weapons/tfa_fallout/w_fallout_grenade_launcher.mdl",
 	Width = 4,
 	iconCam = {
 		pos = Vector(2.75, 191.95, 56.09),
@@ -1741,8 +1827,66 @@ PLUGIN.GunData["aus_w_launcher_nade"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 4,
 	Prim = {
 		Ammo = "40mmammo",
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+PLUGIN.GunData["rust_grenadelauncher"] = {
+	BlackList = false,
+	ID = "revolvinggrenadelauncher",
+	Name = "Revolving Grenade Launcher",
+	conditionDrainFactor = 5,
+	Desc = "A six-shot grenade launcher that is capable of firing a barrage of grenades in decnet time, but is very slow to reload as each chamber must be manually loaded, like a revolver." ,
+	Slot = "primary",
+	Model = "models/weapons/darky_m/rust/w_grenadelauncher.mdl",
+	Width = 4,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 2,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	strengthReq = 4,
+	Prim = {
+		Ammo = "40mmammo",
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+-- Missile --
+PLUGIN.GunData["rust_rocketlauncher"] = {
+	BlackList = false,
+	ID = "missilelauncher",
+	Name = "Missile Launcher",
+	conditionDrainFactor = 5,
+	Desc = "A big metal tube capable of firing a high explosive rocket against a group of foes or one very unlucky one." ,
+	Slot = "primary",
+	Model = "models/weapons/darky_m/rust/w_rocketlauncher.mdl",
+	Width = 5,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 2,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	strengthReq = 4,
+	Prim = {
+		Ammo = "missileammo",
 	},
 	
 	--Sec == Secondary
@@ -1895,6 +2039,34 @@ PLUGIN.GunData["aus_w_laserrifle"] = {
 
 PLUGIN.GunData["tfa_laser_rifle"] = {
 	BlackList = false,
+	ID = "laserriflescoped",
+	Name = "Scoped Laser Rifle",
+	conditionDrainFactor = 1.35,
+	Desc = "The gold standard of laser weaponry, the AER-9 is lightweight and hits hard and accurate - but tends to be a bit finicky, needing repairs often. This one has a medium range scope for even greater accuracy, but is just slightly more awkward to use at close range." ,
+	Slot = "primary",
+	Model = "models/illusion/fwp/w_laserrifle.mdl",
+	Width = 3,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 2,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	strengthReq = 4,
+	Prim = {
+		Ammo = "mfcammo",
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+PLUGIN.GunData["tfa_laser_rifle"] = {
+	BlackList = false,
 	ID = "laserrifleunique",
 	Name = " Far East Beast",
 	conditionDrainFactor = 1.15,
@@ -1957,6 +2129,34 @@ PLUGIN.GunData["tfa_laer"] = {
 	Desc = "The LAER, or Laser-Assisted Electrical Rifle, is a rare energy rifle that fires a much more intense beam than the common laser rifle, but tends to be less accurate. It's also extremely finicky with repairs." ,
 	Slot = "primary",
 	Model = "models/fallout/fonv/laer/w_fallout_laer.mdl",
+	Width = 3,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 2,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	strengthReq = 4,
+	Prim = {
+		Ammo = "mfcammo",
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+PLUGIN.GunData["tfa_pulserifle"] = {
+	BlackList = false,
+	ID = "pulserifle",
+	Name = "YK-42 Pulse Rifle",
+	conditionDrainFactor = 1.25,
+	Desc = "The YK-42 is a rather uncommon weapon developed pre-war by the Yuma Flats Energy Consortium. It was commissioned by the US Military as a counter to rumors of China issuing its own powered armors, though was repurposed for disabling tanks when that never came to fruition. Its large pulse beam hits hard enough to physically hurt the target aside from just its beam, but is also very capable of frying electrical systems."
+	Slot = "primary",
+	Model = "models/weapons/laserrifle/w_laserrifle_beamsplitter_scoped.mdl",
 	Width = 3,
 	iconCam = {
 		pos = Vector(2.75, 191.95, 56.09),

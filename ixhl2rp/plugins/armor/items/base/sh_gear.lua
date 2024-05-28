@@ -285,7 +285,7 @@ function ITEM:OnInstanced()
 	self:SetData("maxDr", self.dR)
 	self:SetData("dT", self.dT)
 	self:SetData("eT", self.eT)
-	self:SetData("dR", self.eT)
+	self:SetData("dR", self.dR)
 end
 
 local function skinset(item, data)
@@ -450,7 +450,7 @@ ITEM.functions.Equip = {
 		local character = client:GetCharacter()
 		local items = character:GetInventory():GetItems()
 
-		if item.isPowerArmor and not character:HasFeat(patraining) then client:NewVegasNotify("You need Power Armor Training to equip this.", "factionBrotherhood", 5) return false end
+		if item.isPowerArmor and not character:HasFeat("patraining") then client:NewVegasNotify("You need Power Armor Training to equip this.", "factionBrotherhood", 5) return false end
 		
 		for _, v in pairs(items) do
 			if (v.id != item.id) then

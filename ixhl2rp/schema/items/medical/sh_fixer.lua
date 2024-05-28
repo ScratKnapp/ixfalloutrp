@@ -1,6 +1,6 @@
 ITEM.name = "Fixer"
-ITEM.description = "A tin of pills for treating addiction."
-ITEM.longdesc = "A set of tablets to take that immediately suppress any mentally or physically altering side effects from any drugs or alcohol - be they positive or negative. Slightly hazes your vision and causes muscles to remble for a short period, making swinging or firing a weapon effectively quite difficult. In the long term, they can also suppress mental and physical cravings for addictive substances, aiding in recovery."
+ITEM.description = "A tin of pills for curing addiction."
+ITEM.longdesc = "A set of tablets to take that immediately suppress any mentally or physically altering side effects from any drugs or alcohol, and assuming a good effort on the user's part to kick the habit, removes them for good."
 ITEM.model = "models/mosi/fnv/props/health/chems/fixer.mdl"
 ITEM.width = 2
 ITEM.height = 1
@@ -10,38 +10,17 @@ ITEM.flag = "1"
 ITEM.quantity = 1
 ITEM.sound = "fosounds/fix/npc_human_eating_mentats.mp3"
 ITEM.weight = 0.05
-ITEM.duration = 9000
+
 
 ITEM.functions.use = {
 	name = "Use",
 	icon = "icon16/heart.png",
 	OnRun = function(item)
 		local quantity = item:GetData("quantity", item.quantity)
-	
-		ix.chat.Send(item.player, "iteminternal", "takes some  "..item.name..".", false)
-
-		local boosts = item.player:GetCharacter():GetBoosts()
-
-		for attribID, v in pairs(boosts) do
-			for boostID, _ in pairs(v) do
-				item.player:GetCharacter():RemoveBuff(boostID, attribID)
-			end
-		end
-
-		
 		curplayer = item.player:GetCharacter()
-		item.name = item.name
-		duration = item.duration
-
-		item.player:NewVegasNotify("All stat buffs and debuffs removed, but your vision blurs slightly and your arms tremble.", "messageNeutral", 7)
-
-		timer.Simple(duration, function() 
-			curplayer:GetPlayer():NewVegasNotify(item.name .. " has worn off.", "messageNeutral", 8)
-			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
-		end)
-
+		ix.chat.Send(item.player, "iteminternal", "takes some  "..item.name..".", false)
+		curplayer:PurgeAddictions(item.player, true)
 		quantity = quantity - 1
-
 		if (quantity >= 1) then
 			item:SetData("quantity", quantity)
 			return false
@@ -50,7 +29,13 @@ ITEM.functions.use = {
 		return true
 	end,
 	OnCanRun = function(item)
-		return (!IsValid(item.entity))
+		curplayer = item.player:GetCharacter()
+		
+		if (curplayer:GetData("usingFixer")) then 
+			return false
+		else 
+			return (!IsValid(item.entity))
+		end 
 	end
 }
 

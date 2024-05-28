@@ -11,7 +11,8 @@ ITEM.quantity = 1
 ITEM.heal = 35
 ITEM.sound = "fosounds/fix/npc_human_using_psycho_01.mp3"
 ITEM.weight = 0.05
-ITEM.duration = 9000
+ITEM.duration = 6
+ITEM.addictionChance = 10
 
 
 ITEM.functions.use = {
@@ -29,12 +30,14 @@ ITEM.functions.use = {
 		duration = item.duration
 		item.player:AdjustHealth("heal", item.heal)
 		curplayer:SetData("usingHydra", true)
+		curplayer:DrugHandler(item.player, "Jet", item.addictionChance)
 
 		timer.Create(item.name, item.duration, 1, function() 
 	        item.player:AdjustHealth("hurt", 30)
 			curplayer:GetPlayer():NewVegasNotify(item.name .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
 			curplayer:SetData("usingHydra", false)
+			curplayer:ReapplyAddiction(curplayer:GetPlayer(), "Hydra")
 		end)
 
 		timer.Pause(item.name)

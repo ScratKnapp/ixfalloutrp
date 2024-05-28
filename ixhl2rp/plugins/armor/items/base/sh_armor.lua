@@ -370,8 +370,8 @@ ITEM:Hook("drop", function(item)
 			character:SetChardr(character:GetChardr() - item:GetData("dR"))
 		end 
 	
-		if(item:GetData("radResist", 0)  > 0) then
-			character:SetCharradresist(character:GetCharradresist() - item:GetData("radResist"))
+		if(item:GetData("radResist", 0)  ~= 0) then
+			character:SetCharradresistboost(character:GetCharradresistboost() - item:GetData("radResist"))
 		end 
 
 		if(item.healthBoost) then
@@ -390,8 +390,9 @@ ITEM:Hook("drop", function(item)
 			character:RemoveSkillBoost("veryheavyarmor", "evasion")
 			character:RemoveSkillBoost("superheavyarmor", "evasion")
 		end 
+
 		
-		
+	
 		item:RemoveOutfit(item:GetOwner())
 	end
 end)
@@ -439,7 +440,7 @@ ITEM.functions.EquipUn = { -- sorry, for name order.
 		end 
 
 		if(item:GetData("radResist")) then
-			character:SetCharradresist(character:GetCharradresist() - item:GetData("radResist"))
+			character:SetCharradresistboost(character:GetCharradresistboost() - item:GetData("radResist"))
 		end 
 
 		if(item.healthBoost) then
@@ -457,6 +458,8 @@ ITEM.functions.EquipUn = { -- sorry, for name order.
 			character:RemoveSkillBoost("veryheavyarmor", "evasion")
 			character:RemoveSkillBoost("superheavyarmor", "evasion")
 		end 
+
+	
 		
 		return false
 	end,
@@ -486,7 +489,9 @@ ITEM.functions.Equip = {
 		end 
 
 
-		if item.isPowerArmor and not character:HasFeat(patraining) then client:NewVegasNotify("You need Power Armor Training to equip this armor.", "factionBrotherhood", 5) return false end
+
+
+		if item.isPowerArmor and not character:HasFeat("patraining") then client:NewVegasNotify("You need Power Armor Training to equip this armor.", "factionBrotherhood", 5) return false end
 		
 		for _, v in pairs(items) do
 			if (v.id != item.id) then
@@ -522,12 +527,12 @@ ITEM.functions.Equip = {
 			character:SetCharet(character:GetCharet() + item:GetData("eT"))
 		end 
 
-		if(item:GetData("dR", 0)) > 0 then
+		if(item:GetData("dR", 0)) ~= 0 then
 			character:SetChardr(character:GetChardr() + item:GetData("dR"))
 		end 
 				
-		if(item:GetData("radResist", 0)) > 0 then
-			character:SetCharradresist(character:GetCharradresist() + item:GetData("radResist"))
+		if(item:GetData("radResist", 0)) ~= 0 then
+			character:SetCharradresistboost(character:GetCharradresistboost() + item:GetData("radResist"))
 		end 
 
 		if(item.healthBoost) then

@@ -1,0 +1,22 @@
+ITEM.name = "Sierra Madre Security Armor, Reinforced"
+ITEM.model = "models/fallout/apparel/vaultsecurity.mdl"
+ITEM.replacements = "models/bloocobalt/fo3/vaulttech/101-security_09.mdl"
+ITEM.description = "A set of Security Armor produced for the Sierra Madre."
+ITEM.longdesc = "A set of Security Armor produced for the Sierra Madre, with very durable padding from clearly advanced materials, given its decent protection while being even lighter than the standard private security set."
+ITEM.width = 2
+ITEM.height = 1
+ITEM.price = 230000
+ITEM.flag = "A"
+ITEM.isArmor = true
+ITEM.isBodyArmor = true
+ITEM.noBusiness = true
+ITEM.weight = 2
+ITEM.dT = 15
+ITEM.eT = 4
+ITEM.dR = 5
+ITEM.newSkin = 0
+ITEM.weightClass = 1
+ITEM.bodyGroups = {
+["helmet"] = 3,
+}
+ITEM.bodygroupsub = {0}

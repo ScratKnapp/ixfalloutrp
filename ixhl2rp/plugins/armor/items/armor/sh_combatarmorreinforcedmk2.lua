@@ -1,5 +1,5 @@
 ITEM.name = "Combat Armor Reinforced"
-ITEM.model = "models/thespireroleplay/items/clothes/group053.mdl"
+ITEM.model = "models/fallout/apparel/mark2combat.mdl"
 ITEM.replacements = {
 	{"group004", "group053"}
 }

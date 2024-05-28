@@ -11,6 +11,7 @@ ITEM.quantity = 1
 ITEM.sound = "fosounds/fix/npc_human_eating_mentats.mp3"
 ITEM.weight = 0.05
 ITEM.duration = 5
+ITEM.addictionChance = 10
 
 ITEM.functions.use = {
 	name = "Use",
@@ -29,6 +30,7 @@ ITEM.functions.use = {
 		curplayer:BuffStat("buffout", "endurance", 2)
 		curplayer:SetCharmaxhpboost(curplayer:GetCharmaxhpboost() + 25)
 		curplayer:SetData("usingBuffout", true)
+		curplayer:DrugHandler(item.player, "Buffout", item.addictionChance)
 
 
 		timer.Create(item.name, item.duration, 1, function()  
@@ -38,6 +40,7 @@ ITEM.functions.use = {
 			curplayer:GetPlayer():NewVegasNotify(item.name .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
 			curplayer:SetData("usingBuffout", false)
+			curplayer:ReapplyAddiction(curplayer:GetPlayer(), "Buffout")
 		end)
 
 			timer.Pause(item.name)

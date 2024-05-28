@@ -28,10 +28,12 @@ function ENT:OnTakeDamage(dmgInfo)
 end
 
 local weapons = {
-    "rifle",
-    "heavy",
-    "launcher",
-    "melee"
+    "models/fallout/weapons/c_minigun_fix.mdl",
+    "models/fallout/weapons/w_laserscattergun.mdl",
+    "models/fallout/weapons/w_laserrifleunique.mdl",
+    "models/fallout/weapons/w_supersledge.mdl",
+    "models/fallout/weapons/w_missilelauncher.mdl"
+
 }
 
 
@@ -122,8 +124,9 @@ if (SERVER) then
     function ENT:CustomInitialize()
 
         local chosenweapon = table.Random(weapons)
+        self:SetCEntWeaponModel(chosenweapon)
 
-        if string.find(chosenweapon, "heavy") then
+        if string.find(chosenweapon, "minigun") then
             self.IdleAnim = "2hhaim"
             self.AttackAnim = "2hhaim"
             self.RunAnim = "2hhaim_run"
@@ -131,7 +134,7 @@ if (SERVER) then
             self.CrouchAnim = "sneak2hraim"
         end
 
-        if string.find(chosenweapon, "melee") then
+        if string.find(chosenweapon, "sledge") then
             self.IdleAnim = "2hmaim"
             self.AttackAnim = "2hmaim"
             self.RunAnim = "2hmaim_run"

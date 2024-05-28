@@ -14,11 +14,11 @@ ITEM.isBodyArmor = true
 ITEM.noBusiness = true
 ITEM.weight = 2
 ITEM.weight = 2
-ITEM.dT = 14
-ITEM.eT = 6
+ITEM.dT = 16
+ITEM.eT = 10
 ITEM.noUpgrade = true
 ITEM.skillBoosts = {
-	["survival"] = 5
+	["guns"] = 10
 }
 ITEM.newSkin = 0
 ITEM.weightClass = 2

@@ -144,6 +144,14 @@ if (SERVER) then
         self:SetDR(20)
         self:SetAttackBoost(15)
         self:SetDodgeBoost(5)
+
+
+        local arms = ents.Create("prop_physics")
+        arms:SetModel("models/thespireroleplay/humans/group056/arms.mdl")
+        arms:Spawn()
+        arms:SetParent(self)
+        arms:AddEffects(EF_BONEMERGE)
+
        
     end
 end

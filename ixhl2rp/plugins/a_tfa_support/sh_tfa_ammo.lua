@@ -303,6 +303,16 @@ PLUGIN.AmmoData["40mmammo" ] = {
 	Height = 1
 }
 
+PLUGIN.AmmoData["missileammo" ] = {
+	Name = "Missile",
+	Amount = 1,
+	Price = 2000,
+	Model = "models/weapons/darky_m/rust/rocket.mdl",
+	Width = 2,
+	Height = 1
+}
+
+
 PLUGIN.AmmoData["lasercanisterammo" ] = {
 	Name = "Homemade Laser Canister",
 	Amount = 12,

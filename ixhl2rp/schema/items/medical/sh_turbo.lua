@@ -10,7 +10,8 @@ ITEM.flag = "1"
 ITEM.quantity = 1
 ITEM.sound = "fosounds/fix/npc_human_using_jet.mp3"
 ITEM.weight = 0.05
-ITEM.duration = 9000
+ITEM.duration = 5
+ITEM.addictionChance = 20
 
 ITEM.functions.use = {
 	name = "Use",
@@ -27,6 +28,7 @@ ITEM.functions.use = {
 		curplayer:SetCharapboost(curplayer:GetCharapboost() + 1)
 		curplayer:AddSkillBoost("turbo", "evasion", 5)
 		curplayer:SetData("usingJet", true)
+		curplayer:DrugHandler(item.player, "Jet", item.addictionChance)
 
 		timer.Create(item.name, item.duration, 1, function() 
 			curplayer:SetCharapboost(curplayer:GetCharapboost() - 1)
@@ -34,6 +36,7 @@ ITEM.functions.use = {
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
 			curplayer:RemoveSkillBoost("turbo", "evasion")
 			curplayer:SetData("usingJet", false)
+			curplayer:ReapplyAddiction(curplayer:GetPlayer(), "Jet")
 		end)
 
 			timer.Pause(item.name)

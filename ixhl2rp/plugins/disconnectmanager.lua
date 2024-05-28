@@ -70,9 +70,19 @@ function PLUGIN:OnCharacterDisconnect(client, character)
 	character:SetData("usingHealingpoultice", false)
 	character:SetData("usingCigarette", false)
 	character:SetData("usingMentats", false)
+	character:SetData("usingSuperStimpak", false)
+	character:SetData("inPowerArmor", false)
 
 	character:SetData("timertable", {})
 
+
+	local boosts = character:GetBoosts()
+
+	for attribID, v in pairs(boosts) do
+		for boostID, _ in pairs(v) do
+			character:RemoveBuff(boostID, attribID)
+		end
+	end
 	
 end 
 
