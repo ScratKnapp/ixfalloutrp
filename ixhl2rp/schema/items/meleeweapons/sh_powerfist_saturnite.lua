@@ -1,12 +1,12 @@
-ITEM.name = "Proton Axe"
-ITEM.description = "A curious axe-shaped weapon with a blade made out of projected energy, able to cleanly slice through many things,  and has a potent pulse effect on machinery."
-ITEM.model = "models/weapons/tfa_fallout/w_fallout_proton_axe.mdl"
-ITEM.class = "aus_m_twohanded_protonaxe"
+ITEM.name = "Saturnite Power Fist"
+ITEM.description = "A pneumatic power fist with its metal casing replaced by the space-age Saturnite alloy. The material is significantly lighter, allowing for quicker, less cumbersome striking, but is less dense than the solid steel used origonally."
+ITEM.model = "models/mosi/fallout4/props/weapons/melee/powerfist.mdl"
+ITEM.class = "aus_m_fists_powerfist"
 ITEM.weaponCategory = "melee"
 ITEM.price = 5000
 ITEM.flag = "1"
 ITEM.height = 3
-ITEM.width = 1
+ITEM.width = 2
 ITEM.category = "Melee"
 ITEM.canAttach = false
 ITEM.repairCost = ITEM.price/100*1

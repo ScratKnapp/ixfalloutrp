@@ -562,7 +562,7 @@ if (CLIENT) then
 			label:SetText(k)
 			self.menu:AddItem(label)
 
-			for _, d in ipairs(v) do
+			for _, d in SortedPairsByMemberValue(v, "name") do
 				local button = self.menu:Add("DButton")
 				button:SetText(d.name.." | Price: "..(d.price or "0").." | Value:"..(d.value or "0"))
 				--print(d.name.." | Price: "..(d.price or "0"))

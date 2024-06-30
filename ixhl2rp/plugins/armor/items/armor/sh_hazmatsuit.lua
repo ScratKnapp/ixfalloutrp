@@ -1,0 +1,24 @@
+ITEM.name = "Hazmat Suit"
+ITEM.model = "models/fallout/apparel/hazmat.mdl"
+ITEM.replacements = "models/player/ghost/ghosts.mdl"
+ITEM.description = "An experimental hazmat suit."
+ITEM.longdesc = "An experimental hazmat suit given to workers building the Sierra Madre in the less hospitable portions. It does a decent job of it while having thick enough padding to provide some protection from outside threats."
+ITEM.width = 2
+ITEM.height = 1
+ITEM.price = 230000
+ITEM.flag = "A"
+ITEM.isArmor = true
+ITEM.isBodyArmor = true
+ITEM.isHelmet = true
+ITEM.isGasmask = true
+ITEM.noBusiness = true
+ITEM.dT = 13
+ITEM.eT = 5
+ITEM.radResist = 50
+ITEM.weight = 2
+ITEM.newSkin = 0
+ITEM.weightClass = 2
+ITEM.bodyGroups = {
+["outfit"] = 0,
+}
+ITEM.bodygroupsub = {0}

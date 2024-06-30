@@ -392,6 +392,8 @@ ix.command.Add("Status", {
         str = str .. "DR: " .. client:GetTotalCharDr() .. "%"
         if char:GetChardrboost() > 0 then str = str .. " (+)" end
         str = str .. "\n"
+
+        str = str .. "Stamina: " .. char:GetStamina()
         
         return str
 	end
@@ -429,6 +431,8 @@ ix.command.Add("CharGetStatus", {
         str = str .. "DR: " .. player:GetTotalCharDr()
         if char:GetChardrboost() > 0 then str = str .. " (+)" end
         str = str .. "\n"
+
+        str = str .. "Stamina: " .. char:GetStamina()
         
         return str
 	end

@@ -113,7 +113,7 @@ PLUGIN.AttachData[ "357magnumammo_alt" ] = {
 	Slot = 2
 }
 
-PLUGIN.AttachData[ "357magnumammo_alt" ] = {
+PLUGIN.AttachData[ "44magnumammo_alt" ] = {
 	Name = ".44 Semi Wadcutter Rounds",
 	Desc = "You shouldn't be seeing this.",
 	Price = 2000,
@@ -222,6 +222,38 @@ PLUGIN.AttachData["plasmarifleaccelerator" ] = {
 	Height = 1,
 	Slot = 3
 }
+
+PLUGIN.AttachData["k9000reslaroil" ] = {
+	Name = "K-9000 Resla Roil",
+	Desc = "A resla roil for the K-9000, which gives it a small but potent extra charge for the weapon. Rehehehe!\n+3 Damage\nUpgrade is irreversible",
+	Price = 2000,
+	Model = "models/mosi/fallout4/props/junk/modcrate.mdl",
+	Width = 1,
+	Height = 1,
+	Slot = 3
+}
+
+PLUGIN.AttachData["k9000mentatchow" ] = {
+	Name = "K-9000 Mentat Chow",
+	Desc = "Some Mentat-infused dog chow for the brain inside a K-9000, encouraging it to work harder\n+1 shot when firing (x5 Burst)\nUpgrade is irreversible",
+	Price = 2000,
+	Model = "models/mosi/fallout4/props/junk/modcrate.mdl",
+	Width = 1,
+	Height = 1,
+	Slot = 4
+}
+
+PLUGIN.AttachData["laerprismaticlens" ] = {
+	Name = "LAER Prismatic Lens",
+	Desc = "An improved lens for a LAER's laser emitter, splitting the beam between three smaller ones that inflict greater damage overall, but more heavily energy resistant armors can handle easier.\nChanges damage to 20x3\nUpgrade is irreversible",
+	Price = 2000,
+	Model = "models/mosi/fallout4/props/junk/modcrate.mdl",
+	Width = 1,
+	Height = 1,
+	Slot = 4
+}
+
+
 
 
 

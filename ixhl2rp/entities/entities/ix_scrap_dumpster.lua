@@ -30,37 +30,80 @@ end
 
 function ENT:Use(activator)
     if (activator:IsPlayer()) then
-        target = activator:GetCharacter()
+       local  target = activator:GetCharacter()
 
-        local bHarvested = self:GetVar("bHarvested")
+       if target:GetStamina() < 1 then activator:NewVegasNotify("You're too tired to scavenge. You need at least 1 Stamina.", "messageSad", 4) return end
 
-        if (bHarvested == false) then
-            local scrapqualitychance = math.random(1, 100)
-            local repairboost = target:GetSkill("repair", 0)
-            scrapqualitychance = scrapqualitychance + repairboost
+        local junktable = {
+            "kitscrapboxbasic",
+            "emptybottle",
+            "ducttape",
+            "dishrag",
+            "soap",
+            "rustedcannister",
+            "prewarmoney",
+            "coffeecup",
+            "blastradius",
+            "homemadebattery",
+            "leadcan",
+            "globe",
+            "buttercuptoy",
+            "wonderglue",
+            "tincan",
+            "alarmclock",
+            "bowlingball",
+            "babyrattle",
+            "5lbweight",
+            "10lbweight",
+            "abraxo",
+            "bowl",
+            "bowlingball",
+            "camera",
+            "baseball",
+            "clipboard",
+            "jangles",
+            "nails",
+            "kitmodelrobots",
+            "rustedcannister",
+            "medicalsaw",
+            "teddybear",
+            "fuse",
+            "antifreeze",
+            "blowtorch",
+            "babybottle",
+            "ashtray",
+            "ovenmitt",
+            "turpentine",
+            "fertilizerbag",
+            "drainedecp",
+            "drainedmfc",
+            "biometricscanner",
+            "distresspulser",
+            "kitmodelrobots",
+            "microscope",
+            "fusioncore",
+            "casingsmallpistol",
+            "casingshotgun",
+            "casinglargepistol",
+            "powderpistol",
+            "primershotshell",
+            "primersmallpistol",
+            "primerlargepistol",
+            "leadcan",
+            "casinglargerifle",
+            "powderrifle",
+            "primersmallrifle",
+            "primerlargerifle",
+        }
 
-            local scrapquantity = 1
-            local scrapluckchance = math.random(1, 100) + target:GetAttribute("luck", 0)
+        local selecteditem = table.Random(junktable)
+        local itemname = ix.item.Get(selecteditem)
+        target:GetInventory():Add(selecteditem, 1)
+        activator:EmitSound("fosounds/fix/ui_items_generic_up_02.mp3")
 
-            if scrapluckchance >= 80 then
-                scrapquantity = 2
-            end 
-
-            if (scrapqualitychance >= 80) then
-                target:GetInventory():Add("kitscrapboxadvanced", scrapquantity)
-            else if (scrapqualitychance >= 50) then
-                target:GetInventory():Add("kitscrapboxintermediate", scrapquantity)
-            else 
-                target:GetInventory():Add("kitscrapboxbasic", scrapquantity)
-            end 
-
-            activator:NewVegasNotify("You salvage some bits of scrap from the Dumpster.", "messageNeutral", 3)
-            if scrapquantity > 1 then activator:NewVegasNotify("Lucky! You found more usable scrap that expected.", "messageNeutral", 2) end
-
-            activator:EmitSound("fosounds/fix/ui_items_generic_up_02.mp3")
-            self:SetVar("bHarvested", true)
-            self:SetModel("models/llama/dumpsteropen.mdl")
-        end
+        activator:NewVegasNotify("You find a " .. itemname.name .. "!", "messageNeutral", 4)
+        target:TakeStamina(1)
+    
      
     end 
 end
@@ -76,4 +119,3 @@ if (CLIENT) then
         title:SizeToContents()    
     end
 end
-end 

@@ -1203,6 +1203,35 @@ PLUGIN.GunData["aus_w_marksmancarbine"] = {
 	}
 }
 
+PLUGIN.GunData["tfa_marksman_carbine"] = {
+	BlackList = false,
+	Name = "All-American",
+	ID = "marksmancarbineunique",
+	conditionDrainFactor = 1,
+	Desc = "An improved variant of the Marksman Carbine featuring a green camo pattern and higher spec parts and extended magazine.",
+	Slot = "primary",
+	Model = "models/halokiller38/fallout/weapons/assaultrifles/marksmancarbinea.mdl",
+	Width = 3,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 2,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	strengthReq = 4,
+	Prim = {
+		Ammo = "556ammo",
+		ClipSize = 24
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
 PLUGIN.GunData["aus_w_assaultrifle"] = {
 	BlackList = false,
 	Name = "Light Machine Gun",
@@ -2093,14 +2122,14 @@ PLUGIN.GunData["tfa_laser_rifle"] = {
 	}
 }
 
-PLUGIN.GunData["aus_w_tribeam"] = {
+PLUGIN.GunData["tfa_holo_rifle"] = {
 	BlackList = false,
-	ID = "tribeamlaserrifle",
-	Name = "Tri-Beam Laser Rifle",
-	conditionDrainFactor = 1.35,
-	Desc = "A modified Laser Rifle, with a device on the end that is capable of expending three charges at once in a shotgun-style spread, increasing damage output while limiting range due to the spread quickly going off-target beyond close range." ,
+	ID = "holorifle",
+	Name = "Prototype Holorifle",
+	conditionDrainFactor = 1.5,
+	Desc = "A peculiar weapon resembling a pump action launcher with a scope that takes microfusion cells to power a photon emitter. Its effective as a weapon, but has inconsistent performance and finicky parts. It seems to be merely the first version of whatever it's meant to be.",
 	Slot = "primary",
-	Model = "models/hub/weapons/tribeam/tribeam.mdl",
+	Model = "models/halokiller38/fallout/weapons/energy weapons/holorifle.mdl",
 	Width = 3,
 	iconCam = {
 		pos = Vector(2.75, 191.95, 56.09),
@@ -2111,7 +2140,7 @@ PLUGIN.GunData["aus_w_tribeam"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
-	strengthReq = 4,
+	strengthReq = 5,
 	Prim = {
 		Ammo = "mfcammo",
 	},
@@ -2154,7 +2183,7 @@ PLUGIN.GunData["tfa_pulserifle"] = {
 	ID = "pulserifle",
 	Name = "YK-42 Pulse Rifle",
 	conditionDrainFactor = 1.25,
-	Desc = "The YK-42 is a rather uncommon weapon developed pre-war by the Yuma Flats Energy Consortium. It was commissioned by the US Military as a counter to rumors of China issuing its own powered armors, though was repurposed for disabling tanks when that never came to fruition. Its large pulse beam hits hard enough to physically hurt the target aside from just its beam, but is also very capable of frying electrical systems."
+	Desc = "The YK-42 is a rather uncommon weapon developed pre-war by the Yuma Flats Energy Consortium. It was commissioned by the US Military as a counter to rumors of China issuing its own powered armors, though was repurposed for disabling tanks when that never came to fruition. Its large pulse beam hits hard enough to physically hurt the target aside from just its beam, but is also very capable of frying electrical systems.",
 	Slot = "primary",
 	Model = "models/weapons/laserrifle/w_laserrifle_beamsplitter_scoped.mdl",
 	Width = 3,
