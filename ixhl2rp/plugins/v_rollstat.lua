@@ -3,6 +3,7 @@ PLUGIN.name = "Stat Rolling"
 PLUGIN.author = "Val"
 PLUGIN.description = "cheese.wav"
 
+ix.dice = ix.dice or {}
 
 ----= Attributes =----
 
@@ -523,5 +524,15 @@ ix.chat.Register("rollStatModifier", {
     end
 })
 
+ix.command.Add("combatdice", {
+    description = "Roll combat dice.",
+    arguments = {ix.type.number},
+    OnRun = function(self, client, amount)
+        
+       local result = ix.dice:combatDice(amount)
+
+       return result.string
+    end
+})
 
 

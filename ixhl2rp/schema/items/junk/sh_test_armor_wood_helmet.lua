@@ -1,0 +1,9 @@
+ITEM.name = "Wood Helmet"
+ITEM.model = "models/props_c17/BriefCase001a.mdl"
+ITEM.description = "A wooden helmet. Better than nothing!"
+ITEM.longdesc = "Coverage: Head\nPhysical: 1\nEnergy: 0\n Radiation: 0"
+ITEM.category = "junk"
+ITEM.flag = "1"
+ITEM.price = 5
+ITEM.width = 1
+ITEM.height = 1

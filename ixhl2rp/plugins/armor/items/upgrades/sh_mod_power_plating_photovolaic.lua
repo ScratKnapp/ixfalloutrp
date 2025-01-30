@@ -1,0 +1,12 @@
+ITEM.name = "Power Armor Photovolaic Plating"
+ITEM.description = "Effectively a more durable form of solar panels for generating some extra power when you're stomping about.\n+1 AP at the start of each scene if standing in direct sunlight\nDoes not stack with other pieces using this upgrade"
+ITEM.category = "Upgrades"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 10
+ITEM.slot = 2
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 1
+ITEM.isArmorUpg = true

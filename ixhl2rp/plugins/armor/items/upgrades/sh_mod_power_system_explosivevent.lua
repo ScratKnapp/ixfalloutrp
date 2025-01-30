@@ -1,0 +1,12 @@
+ITEM.name = "Power Armor Explosive Vent"
+ITEM.description = "Vents for your power-legs makes stomping fools easier.\nWhen you make an Impact Landing, inflict 4 damage die to all enemies and objects within Close range"
+ITEM.category = "Upgrades"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 100
+ITEM.slot = 3
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 1
+ITEM.isArmorUpg = true

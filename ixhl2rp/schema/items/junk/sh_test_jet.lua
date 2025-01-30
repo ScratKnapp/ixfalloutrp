@@ -1,0 +1,9 @@
+ITEM.name = "Jet"
+ITEM.model = "models/fallout/clutter/chems/jet.mdl"
+ITEM.description = "An inhalant stimulant."
+ITEM.longdesc = "Consume with a Minor action to reduce AP cost of buying extra major/minor actions during this turn by 1"
+ITEM.category = "junk"
+ITEM.flag = "1"
+ITEM.price = 5
+ITEM.width = 1
+ITEM.height = 1

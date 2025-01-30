@@ -1,0 +1,12 @@
+ITEM.name = "Power Armor Tesla Bracers"
+ITEM.description = "Strike your enemies with the power of Thor. Lightning bolt, lightning bolt!\nUnarmed attacks (fists only) inflict 2 more damage dice, and inflict Energy damage"
+ITEM.category = "Upgrades"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 150
+ITEM.slot = 3
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 1
+ITEM.isArmorUpg = true

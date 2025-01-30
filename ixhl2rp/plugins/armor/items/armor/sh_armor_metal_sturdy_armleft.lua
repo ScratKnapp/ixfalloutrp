@@ -1,0 +1,38 @@
+ITEM.name = "Sturdy Metal Left Arm"
+ITEM.model = "models/fallout/apparel/metalarmor.mdl"
+ITEM.description = "A piece of reinforced metal armor."
+ITEM.longdesc = "A set of metal armor with additional plating, offering more protection while being heavier."
+ITEM.width = 2
+ITEM.height = 1
+ITEM.price = 65
+ITEM.flag = "A"
+ITEM.rarity = 2
+ITEM.isArmor = true
+ITEM.isBodyArmor = true
+ITEM.weight = 8
+ITEM.coverage = {"armleft"}
+ITEM.acceptedMods = 
+{
+	"mod_metalpainted",
+	"mod_metalenameled",
+	"mod_metalshadowed",
+	"mod_metalalloyed",
+	"mod_metalpolished",
+	"mod_lightbuild",
+	"mod_pocketed",
+	"mod_deeppocketed",
+	"mod_leadlined",
+	"mod_ultralightbuild",
+	"mod_brawling",
+	"mod_braced",
+	"mod_stabilized",
+	"mod_aerodynamic",
+	"mod_weighted",
+
+}
+ITEM.damResistances =
+{
+	["Physical"] = 3,
+	["Energy"] = 2,
+	["Radiation"] = 0 
+}

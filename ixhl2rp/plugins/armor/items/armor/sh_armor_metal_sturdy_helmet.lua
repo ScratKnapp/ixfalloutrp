@@ -1,0 +1,28 @@
+ITEM.name = "Sturdy Metal Helmet"
+ITEM.model = "models/fallout/apparel/helmetmetalarmor.mdl"
+ITEM.description = "A piece of reinforced metal armor."
+ITEM.longdesc = "A set of metal armor with additional plating, offering more protection while being heavier."
+ITEM.width = 2
+ITEM.height = 1
+ITEM.price = 65
+ITEM.flag = "A"
+ITEM.rarity = 2
+ITEM.isArmor = true
+ITEM.isBodyArmor = true
+ITEM.weight = 8
+ITEM.coverage = {"head"}
+ITEM.acceptedMods = 
+{
+	"mod_metalpainted",
+	"mod_metalenameled",
+	"mod_metalshadowed",
+	"mod_metalalloyed",
+	"mod_metalpolished"
+
+}
+ITEM.damResistances =
+{
+	["Physical"] = 3,
+	["Energy"] = 2,
+	["Radiation"] = 0 
+}

@@ -1,0 +1,12 @@
+ITEM.name = "Raider Power Armor Welded Rebar"
+ITEM.description = "An upgrade for Raider Armor chest pieces that affixes some rebar to it. Melee attackers who aren't careful can easily find their attacks reflecting off it back at them.\nEnemies who attack you with a melee or unarmed attack and suffer a complication take 2 combat dice of damage"
+ITEM.category = "Upgrades"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 25
+ITEM.slot = 3
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 2
+ITEM.isArmorUpg = true

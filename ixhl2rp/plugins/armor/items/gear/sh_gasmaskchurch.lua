@@ -1,9 +1,0 @@
-ITEM.name = "Salvation Church Gas Mask"
-ITEM.description = "An old gas mask."
-ITEM.longdesc = "An old rubber gas mask, once kept by civillians in case of disaster. Now, it serves as the literal face of the Church, whose members wear it at nearly all times when outside."
-ITEM.model = "models/shtokerbox/ground_mask_gp5.mdl"
-ITEM.price = 15000
-ITEM.isGasmask = false
-ITEM.isHelmet = true
-ITEM.radResist = 8
-ITEM.dT = 1

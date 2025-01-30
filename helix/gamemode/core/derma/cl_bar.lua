@@ -109,29 +109,6 @@ function PANEL:Think()
 	local bShouldHide = hook.Run("ShouldHideBars")
 	local bAlwaysShow = ix.option.Get("alwaysShowBars", false)
 
-	for _, v in ipairs(self.bars) do
-		local info = ix.bar.list[v:GetID()]
-		local realValue, barText = info.GetValue()
-
-		if (bShouldHide or realValue == false) then
-			v:SetVisible(false)
-			continue
-		end
-
-		if (v:GetDelta() != realValue) then
-			v:SetLifetime(curTime + 5)
-		end
-
-		if (v:GetLifetime() < curTime and !info.visible and !bAlwaysShow and !hook.Run("ShouldBarDraw", info)) then
-			v:SetVisible(false)
-			continue
-		end
-
-		v:SetVisible(true)
-		v:SetValue(realValue)
-		v:SetText(isstring(barText) and barText or "")
-	end
-
 	self:Organize()
 end
 

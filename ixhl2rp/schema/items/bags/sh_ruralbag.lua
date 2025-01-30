@@ -14,3 +14,4 @@ ITEM.iconCam = {
 	ang = Angle(90, 0, 90),
 	fov = 5.7
 }
+ITEM.weightBonus = 5

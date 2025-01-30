@@ -1,0 +1,12 @@
+ITEM.name = "Power Armor Jetpack"
+ITEM.description = "Holy crap, it's a friggin jetpack!\nWhenever you move, consume 1 Fusion Core charge to use the jetpack to move an additional 20ft, horizontally or vertically, or to do an Impact Landing wherever you end up"
+ITEM.category = "Upgrades"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 500
+ITEM.slot = 3
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 1
+ITEM.isArmorUpg = true

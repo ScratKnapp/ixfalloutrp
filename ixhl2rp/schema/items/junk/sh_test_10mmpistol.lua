@@ -1,0 +1,10 @@
+ITEM.name = "10mm Pistol"
+ITEM.model = "models/fallout/weapons/w_10mmpistol.mdl"
+ITEM.description = "A 10mm pistol, the gold standard."
+ITEM.longdesc = "Damage Rating: 4\nFire Rate: 3\nRange: Close\nQualities: Close Quarters, Reliable"
+ITEM.category = "junk"
+ITEM.flag = "1"
+ITEM.price = 5
+ITEM.width = 1
+ITEM.height = 1
+ITEM.weight = 50

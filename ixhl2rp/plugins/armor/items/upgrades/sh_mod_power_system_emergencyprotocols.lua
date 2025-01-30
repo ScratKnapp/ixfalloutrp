@@ -1,0 +1,12 @@
+ITEM.name = "Power Armor Emergency Protocols"
+ITEM.description = "A software and hardware combo suite for a chest piece that shunts power from less important systems to the servos when it detects critical damage.\nIf your current HP is below 1/4 of your max, add +1 Defense and +3 to all damage resistances"
+ITEM.category = "Upgrades"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 100
+ITEM.slot = 3
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 2
+ITEM.isArmorUpg = true

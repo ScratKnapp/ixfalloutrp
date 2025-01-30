@@ -1,0 +1,12 @@
+ITEM.name = "Power Armor Targeting HUD"
+ITEM.description = "A modification for power armor helmets, adding a form of aim assist for landing shots with ease.\nAim is a free Minor Action"
+ITEM.category = "Upgrades"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 100
+ITEM.slot = 3
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 1
+ITEM.isArmorUpg = true

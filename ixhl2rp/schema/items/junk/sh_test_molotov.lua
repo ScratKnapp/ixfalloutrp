@@ -1,0 +1,9 @@
+ITEM.name = "Molotov"
+ITEM.model = "models/props_junk/glassbottle01a.mdl"
+ITEM.description = "A very spicy drink."
+ITEM.longdesc = "Damage Rating: 4\nDamage Effects: Persistent\nQualities: Blast, Thrown (M)"
+ITEM.category = "junk"
+ITEM.flag = "1"
+ITEM.price = 5
+ITEM.width = 1
+ITEM.height = 1

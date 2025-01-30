@@ -1,0 +1,13 @@
+ITEM.name = "Power Armor Calibrated Shocks"
+ITEM.description = "Properly calibrated shocks on your power-legs makes hauling easier.\n+25 carryng capacity"
+ITEM.category = "Upgrades"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 100
+ITEM.slot = 3
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 1
+ITEM.isArmorUpg = true
+ITEM.carryBonus = 25

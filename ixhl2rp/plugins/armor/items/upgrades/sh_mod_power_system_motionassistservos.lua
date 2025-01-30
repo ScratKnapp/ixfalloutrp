@@ -1,0 +1,12 @@
+ITEM.name = "Power Armor Motion Assist Servos"
+ITEM.description = "Toughened servos for a chest piece that boosts their output.\nIncrease Strength to 13"
+ITEM.category = "Upgrades"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 100
+ITEM.slot = 3
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 2
+ITEM.isArmorUpg = true

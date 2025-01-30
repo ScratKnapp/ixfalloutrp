@@ -1,0 +1,12 @@
+ITEM.name = "Power Armor Reactive Plates"
+ITEM.description = "Reactive plates for a chest piece that will send a melee attacker's swings right back at them.\nWhen you take damage from a melee or unarmed attack (whether it gets through your armor or not), reflect half of incoming damage back to the attack"
+ITEM.category = "Upgrades"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 100
+ITEM.slot = 3
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 2
+ITEM.isArmorUpg = true

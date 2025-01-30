@@ -13,11 +13,7 @@ ITEM.longdesc = "No longer description available."
 ITEM.category = "Armor"
 ITEM.skincustom = {}
 ITEM.outfitCategory = "model"
-ITEM.dR = 0
-ITEM.radResist = 0
-ITEM.dT = 0
-ITEM.eT = 0
-ITEM.weightClass = 1
+
 
 
 ITEM:Hook("drop", function(item)
@@ -97,42 +93,15 @@ end,
 						else
 							item:SetData("mod", mods)
 						end
+
+						-- If HP is greater than max because we removed an upgrade that increased the max, set it to the new max.
+						if item.armorHP then 
+							if item:GetHP() > item:GetMaxHP() then
+								item:SetData("HP", item:GetMaxHP())
+							end
+						end 
 						
-						if targetitem.dT then
-							local oldMax = item.maxDt
-							item:SetData("maxDt", item:GetData("maxDt") - targetitem.dT)
-
-							if item:GetData("dT") > item:GetData("maxDt") then
-								item:SetData("dT", item:GetData("maxDt"))
-							end 
-						end 
-
-						if targetitem.eT then
-							local oldMax = item.maEt or 0
-							item:SetData("maxEt", item:GetData("maxEt") - targetitem.eT)
-
-							if item:GetData("eT") > item:GetData("maxEt") then
-								item:SetData("eT", item:GetData("maxEt"))
-							end 
-						end 
-
-						if targetitem.dR then
-							local oldMax = item.maxDr or 0
-							item:SetData("maxDr", item:GetData("maxDr", 0) - targetitem.dR)
-
-							if item:GetData("dR", 0) > item:GetData("maxDr", 0) then
-								item:SetData("dR", item:GetData("maxDr"))
-							end 
-						end 
-
-						if targetitem.radResist then
-							item:SetData("radResist", item:GetData("radResist") - targetitem.radResist)
-						end 
-
-
-						if item:GetData("weightClass") <= 6 then
-							item:SetData("weightClass", item:GetData("weightClass") - targetitem.weightDebuff )
-						end 
+						char:SetData("carry", ix.weight.CalculateWeight(char))
 						
 						client:EmitSound("cw/holster4.wav")
 					else
@@ -284,15 +253,12 @@ function ITEM:RemoveAttachment(id, client)
 end
 
 function ITEM:OnInstanced()
-	self:SetData("durability", 100)
-	self:SetData("maxDt", self.dT)
-	self:SetData("maxEt", self.eT)
-	self:SetData("maxDr", self.dR or 0)
-	self:SetData("dT", self.dT)
-	self:SetData("eT", self.eT)
-	self:SetData("dR", self.dR or 0)
-	self:SetData("weightClass", self.weightClass)
-	self:SetData("radResist", self.radResist or 0)
+
+	if self.armorHP then
+		self:SetData("HP", self.armorHP)
+		self:SetData("MaxHP", self.armorHP)
+	end
+	
 end
 
 local function skinset(item, data)
@@ -358,41 +324,6 @@ ITEM:Hook("drop", function(item)
 	local character = client:GetCharacter()
 
 	if (item:GetData("equip")) then
-		if(item.dT) then
-			character:SetChardt(character:GetChardt() - item:GetData("dT"))
-		end 
-
-		if(item.eT) then
-			character:SetCharet(character:GetCharet() - item:GetData("eT"))
-		end 
-
-		if(item:GetData("dR", 0)) then
-			character:SetChardr(character:GetChardr() - item:GetData("dR"))
-		end 
-	
-		if(item:GetData("radResist", 0)  ~= 0) then
-			character:SetCharradresistboost(character:GetCharradresistboost() - item:GetData("radResist"))
-		end 
-
-		if(item.healthBoost) then
-			character:SetCharmaxhpboost(character:GetCharmaxhpboost() - item.healthBoost)
-		end 
-
-		if(item.apBoost) then
-			character:SetCharapboost(character:GetCharapboost() - item.apBoost)
-		end 
-
-		
-		if(item:GetData("weightClass")) then
-			character:RemoveSkillBoost("lightarmor", "evasion")
-			character:RemoveSkillBoost("mediumarmor", "evasion")
-			character:RemoveSkillBoost("heavyarmor", "evasion")
-			character:RemoveSkillBoost("veryheavyarmor", "evasion")
-			character:RemoveSkillBoost("superheavyarmor", "evasion")
-		end 
-
-		
-	
 		item:RemoveOutfit(item:GetOwner())
 	end
 end)
@@ -426,40 +357,6 @@ ITEM.functions.EquipUn = { -- sorry, for name order.
 		local character = client:GetCharacter()
 				
 		item:RemoveOutfit(item.player)
-
-		if(item.dT) then
-			character:SetChardt(character:GetChardt() - item:GetData("dT"))
-		end 
-
-		if(item.eT) then
-			character:SetCharet(character:GetCharet() - item:GetData("eT"))
-		end 
-
-		if(item:GetData("dR")) then
-			character:SetChardr(character:GetChardr() - item:GetData("dR"))
-		end 
-
-		if(item:GetData("radResist")) then
-			character:SetCharradresistboost(character:GetCharradresistboost() - item:GetData("radResist"))
-		end 
-
-		if(item.healthBoost) then
-			character:SetCharmaxhpboost(character:GetCharmaxhpboost() - item.healthBoost)
-		end 
-
-		if(item.apBoost) then
-			character:SetCharapboost(character:GetCharapboost() - item.apBoost)
-		end 
-
-		if(item:GetData("weightClass")) then
-			character:RemoveSkillBoost("lightarmor", "evasion")
-			character:RemoveSkillBoost("mediumarmor", "evasion")
-			character:RemoveSkillBoost("heavyarmor", "evasion")
-			character:RemoveSkillBoost("veryheavyarmor", "evasion")
-			character:RemoveSkillBoost("superheavyarmor", "evasion")
-		end 
-
-	
 		
 		return false
 	end,
@@ -480,127 +377,48 @@ ITEM.functions.Equip = {
 		local character = client:GetCharacter()
 		local items = character:GetInventory():GetItems()
 
-		if item:GetData("weightClass") then
-			local strengthlevel = character:GetAttribute("strength") or 0
-			
-			if item:GetData("weightClass") == 2 and strengthlevel < 2 then client:NewVegasNotify("You need a Strength of at least 2 to equip this armor.", "messageSad", 8) return false end
-			if item:GetData("weightClass") == 3 and strengthlevel < 5 then client:NewVegasNotify("You need a Strength of at least 5 to equip this armor.", "messageSad", 8)  return false end
-			if item:GetData("weightClass") > 3 and strengthlevel < 8 then client:NewVegasNotify("You need a Strength of at least 8 to equip this armor.", "messageSad", 8) return false end
+		if item.powerArmor and not character:InPowerArmor() then 
+			client:Notify("You need to equip a Power Armor Frame to equip Power Armor.")
+			return false
+		end
+
+
+		local coverage = item.coverage 
+
+	
+		if item.coverage then 
+
+			for k, v in pairs(items) do
+
+
+				if not v:GetData("equip") then continue end 
+				if not v.coverage then continue end 
+
+				if (v.isClothing and item.isOutfit) or (v.isOutfit and item.isClothing) then
+					client:Notify("You can't wear a piece of Clothing and an Outfit at the same time.")
+					return false
+				end 
+
+				if v.isClothing and item.isClothing then
+					client:Notify("You can only wear one clothing article.")
+					return false 
+				end
+
+				if not v.IsClothing and not item.isClothing and armorSlotsConflict(item.coverage, v.coverage) then
+					client:Notify("You already have " .. v:GetName() .. " occupying this slot.")
+					return false
+				end
+
+
+			end
 		end 
 
-
-
-
-		if item.isPowerArmor and not character:HasFeat("patraining") then client:NewVegasNotify("You need Power Armor Training to equip this armor.", "factionBrotherhood", 5) return false end
 		
-		for _, v in pairs(items) do
-			if (v.id != item.id) then
-				local itemTable = ix.item.instances[v.id]
-				if itemTable then
-					if (v.outfitCategory == item.outfitCategory and itemTable:GetData("equip")) then
-						print("Success")
-						item.player:Notify("You're already equipping this kind of outfit")
-						return false
-					end
-
-					if (v.isHelmet == true and item.isHelmet == true and itemTable:GetData("equip")) then
-						item.player:Notify("You are already equipping a helmet!")
-						return false
-					end
-
-					if (v.isGasmask == true and item.isGasmask == true and itemTable:GetData("equip")) then
-						item.player:Notify("You are already equipping a gasmask!")
-						return false
-					end
-				end
-			end
-		end
+		
+	
+		
 
 		item:SetData("equip", true)
-
-		
-		if(item.dT) then
-			character:SetChardt(character:GetChardt() + item:GetData("dT"))
-		end 
-
-		if(item.eT) then
-			character:SetCharet(character:GetCharet() + item:GetData("eT"))
-		end 
-
-		if(item:GetData("dR", 0)) ~= 0 then
-			character:SetChardr(character:GetChardr() + item:GetData("dR"))
-		end 
-				
-		if(item:GetData("radResist", 0)) ~= 0 then
-			character:SetCharradresistboost(character:GetCharradresistboost() + item:GetData("radResist"))
-		end 
-
-		if(item.healthBoost) then
-			character:SetCharmaxhpboost(character:GetCharmaxhpboost() + item.healthBoost)
-		end 
-
-		if(item.apBoost) then
-			character:SetCharapboost(character:GetCharapboost() + item.apBoost)
-		end 
-
-		if(item:GetData("weightClass")) then
-			if item:GetData("weightClass") == 2 then character:AddSkillBoost("lightarmor", "evasion", -5) end
-			if item:GetData("weightClass") == 3 then character:AddSkillBoost("mediumarmor", "evasion", -10) end
-			if item:GetData("weightClass") == 4 then character:AddSkillBoost("heavyarmor", "evasion", -15) end
-			if item:GetData("weightClass") == 5 then character:AddSkillBoost("veryheavyarmor", "evasion", -20) end
-			if item:GetData("weightClass") == 6 then character:AddSkillBoost("superheavyarmor", "evasion", -25) end
-		end 
-		
-		if (type(item.OnGetReplacement) == "function") then
-			character:SetData("oldModel" .. item.outfitCategory, character:GetData("oldModel" .. item.outfitCategory, item.player:GetModel()))
-			character:SetModel(item:OnGetReplacement())
-		elseif (item.replacement or item.replacements) then
-			character:SetData("oldModel" .. item.outfitCategory, character:GetData("oldModel" .. item.outfitCategory, item.player:GetModel()))
-
-			if (type(item.replacements) == "table") then
-				if (#item.replacements == 2 and type(item.replacements[1]) == "string") then
-					character:SetModel(item.player:GetModel():gsub(item.replacements[1], item.replacements[2]))
-				else
-					for _, v in ipairs(item.replacements) do
-						character:SetModel(item.player:GetModel():gsub(v[1], v[2]))
-					end
-				end
-			else
-				character:SetModel(item.replacement or item.replacements)
-			end
-		end
-
-		if (item.newSkin) then
-			character:SetData("oldSkin" .. item.outfitCategory, item.player:GetSkin())
-			item.player:SetSkin(item.newSkin)
-		end
-
-		if item:GetData("setSkin", nil) != nil then
-			client:SetSkin( item:GetData("setSkin", item.newSkin) )
-		end
-
-		if (item.bodyGroups) then
-			local groups = {}
-
-			for k, value in pairs(item.bodyGroups) do
-				local index = item.player:FindBodygroupByName(k)
-
-				if (index > -1) then
-					groups[index] = value
-				end
-			end
-
-			local newGroups = character:GetData("groups", {})
-
-			for index, value in pairs(groups) do
-				newGroups[index] = value
-				item.player:SetBodygroup(index, value)
-			end
-
-			if (table.Count(newGroups) > 0) then
-				character:SetData("groups", newGroups)
-			end
-		end
 
 		if (item.attribBoosts) then
 			for k, v in pairs(item.attribBoosts) do
@@ -655,20 +473,6 @@ function ITEM:OnLoadout()
 			end
 		end
 		
-	
-		if self:GetData("setSkin", nil) != nil then
-			client:SetSkin( self:GetData("setSkin", self.newSkin) )
-		end
-
-		if self:GetData("setBG", nil) != nil then
-			local data = self:GetData("setBG", nil)
-			local bgroup = data[1]
-			local bgroupsub = data[2]
-
-			for i=1,#bgroup do
-				client:SetBodygroup( bgroup[i], bgroupsub[i] )
-			end
-		end
 	end
 end
 
@@ -779,8 +583,7 @@ ITEM.functions.Value = {
 function ITEM:GetDescription()
 	local quant = self:GetData("quantity", 1)
 	local str = self.description.."\n\n"..self.longdesc or ""
-	local cc = false
-	
+
 
 
 
@@ -791,42 +594,20 @@ function ITEM:GetDescription()
 
 	if (customData.longdesc) then
 		str = str.. "\n\n" ..customData.longdesc 
+	end	
+
+
+
+	local totalres = self:GetTotalResistances()
+
+	str = str .. "\n\nPhysical Protection:  " .. totalres["Physical"]
+	str = str .. "\nEnergy Protection:  " .. totalres["Energy"]
+	str = str .. "\nRadiation Protection: " .. totalres["Radiation"]
+
+
+	if self.armorHP then
+		str = str .. "\n\nArmor HP: " .. self:GetHP() .. "/" .. self:GetMaxHP()
 	end
-	
-	if self:GetData("weightClass") then
-		str = str .. "\nWeight Class: " .. self:GetData("weightClass")
-	end 
-	
-	if self.dT then
-		str = str .. "\n\n DT: " .. self:GetData("dT") .. "/" .. self:GetData("maxDt")
-	end 
-
-	if self.eT then
-		str = str .. "\nET: " .. self:GetData("eT") .. "/" ..self:GetData("maxEt")
-	end 
-
-	if self:GetData("dR", 0) > 0 then
-		str = str .. "\nDR: " .. self:GetData("dR") .. "/" .. self:GetData("maxDr") .. "%"
-	end 
-
-	if self:GetData("radResist", 0) > 0 then
-		str = str .. "\nRadiation Resistance: " .. self:GetData("radResist") .. "%"
-	end 
-
-	if self.healthBoost then
-		str = str .."\n+" .. self.healthBoost .. " HP"
-	end 
-
-	if self.apBoost then
-		str = str .."\n+" .. self.apBoost .. " AP"
-	end 
-
-	if self.noUpgrade then 
-		str = str .."\n\n Does not take armor upgrades"
-	end 
-	
-	
-	
 	
 	local mods = self:GetData("mod", {})
 
@@ -840,7 +621,7 @@ function ITEM:GetDescription()
 
 
 	if (self.entity) then
-		return (str)
+		return (self.description)
 	else
         return (str)
 	end
@@ -848,6 +629,19 @@ end
 
 function ITEM:GetName()
 	local name = self.name
+
+	local mods = self:GetData("mod", {})
+
+	if mods then
+		for _,v in pairs(mods) do
+			local moditem = ix.item.Get(v[1])
+			if moditem.prefix then
+				name = moditem.prefix .. " " .. name
+			end
+		end
+	end
+
+	
 	
 	local customData = self:GetData("custom", {})
 	if(customData.name) then
@@ -856,6 +650,90 @@ function ITEM:GetName()
 	
 	return name
 end
+
+function ITEM:GetWeight()
+	local weight = self.weight
+
+	local mods = self:GetData("mod", {})
+
+	if mods then
+		for _,v in pairs(mods) do
+			local moditem = ix.item.Get(v[1])
+			if moditem.weight then 
+				weight = weight + moditem.weight
+			end 
+		end
+	end
+
+	return weight
+
+
+end 
+
+function ITEM:GetTotalResistances()
+	local resistances =
+	{
+		["Physical"] = 0,
+		["Energy"] = 0,
+		["Radiation"] = 0 
+	}
+
+	if self.damResistances then
+		for k,v in pairs(self.damResistances) do
+			if resistances[k] then
+				resistances[k] = resistances[k] + v
+			end
+		end
+	end
+
+	local mods = self:GetData("mod")
+
+	if mods then
+		for x,y in pairs(mods) do
+			local moditem = ix.item.Get(y[1])
+			local modres = moditem.damResistances
+			
+			if modres then
+				for k,v in pairs(modres) do
+					if resistances[k] then
+						resistances[k] = resistances[k] + v
+					end
+				end 
+			end	
+		end
+	end
+
+	return resistances
+
+
+end 
+
+function ITEM:GetHP()
+	local basehp = self:GetData("HP")
+	return basehp
+end
+
+function ITEM:GetMaxHP()
+	local basemax = self:GetData("HP")
+	local modmax = 0
+	
+	local mods = self:GetData("mod")
+
+	if mods then
+		for x,y in pairs(mods) do
+			local moditem = ix.item.Get(y[1])
+			local modhp = moditem.armorHP
+			if modhp then 
+				modmax = modmax + moditem.armorHP
+			end 
+		end
+	end
+
+	return basemax + modmax
+
+
+end
+
 
 ITEM.functions.Clone = {
 	name = "Clone",
@@ -896,3 +774,29 @@ ITEM.functions.Custom = {
 		return client:GetCharacter():HasFlags("N") and !IsValid(item.entity)
 	end
 }
+
+function armorSlotsConflict(array1, array2)
+    local elements = {}
+    for _, value in ipairs(array1) do
+        elements[value] = true
+    end
+    for _, value in ipairs(array2) do
+        if elements[value] then
+            return true
+        end
+    end
+    return false
+end 
+
+function hasEntry(array, entry)
+	local hasEntry = false
+  
+	  for k, v in pairs(array) do
+		if entry == v then
+		  hasEntry = true
+		  break
+		end
+	  end
+  
+	return hasEntry
+  end

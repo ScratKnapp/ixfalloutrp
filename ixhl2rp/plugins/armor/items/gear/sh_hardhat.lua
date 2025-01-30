@@ -1,9 +1,0 @@
-ITEM.name = "Hardhat"
-ITEM.description = "A sturdy construction helmet."
-ITEM.longdesc = "A sturdy helmet used to protect construction workers from falling debris and tools."
-ITEM.model = "models/warz/hardhat.mdl"
-ITEM.price = 15000
-ITEM.isGasmask = false
-ITEM.isHelmet = true
-ITEM.dT = 2
-ITEM.eT = 1

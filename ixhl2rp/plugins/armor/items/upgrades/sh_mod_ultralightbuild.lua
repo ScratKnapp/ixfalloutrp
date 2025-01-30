@@ -1,0 +1,12 @@
+ITEM.name = "Ultralight Build"
+ITEM.description = "Replace some components with even lighter ones, lessening your burden considerably.\n-3kg Armor Weight."
+ITEM.category = "Upgrades"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 7
+ITEM.slot = 2
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = -3
+ITEM.isArmorUpg = true

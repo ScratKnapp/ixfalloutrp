@@ -1,0 +1,12 @@
+ITEM.name = "Power Armor Overdrive Servos"
+ITEM.description = "Supercharged power-legs makes chasing down fools easier.\nWhen you Sprint, you can spend 2 AP to move an additional 20m"
+ITEM.category = "Upgrades"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 100
+ITEM.slot = 3
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 1
+ITEM.isArmorUpg = true

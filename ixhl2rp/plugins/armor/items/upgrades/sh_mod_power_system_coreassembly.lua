@@ -1,0 +1,12 @@
+ITEM.name = "Power Armor Core Assembly"
+ITEM.description = "A mobile power generator for a chest piece, making it easier to siphon off power from the fusion core to power other, smaller objects.\nIf you begin your turn in combat and the group AP pool is empty, add +1 AP"
+ITEM.category = "Upgrades"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 100
+ITEM.slot = 3
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 2
+ITEM.isArmorUpg = true

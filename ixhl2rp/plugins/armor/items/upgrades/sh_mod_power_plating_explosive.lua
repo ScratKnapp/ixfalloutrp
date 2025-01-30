@@ -1,0 +1,12 @@
+ITEM.name = "Power Armor Explosive Shielding"
+ITEM.description = "Blast-resistant shielding for those expecting to be blown up. \n+2 to all damage resistances vs Blast weapons on this piece"
+ITEM.category = "Upgrades"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 10
+ITEM.slot = 2
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 1
+ITEM.isArmorUpg = true

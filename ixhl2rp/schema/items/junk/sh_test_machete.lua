@@ -1,0 +1,9 @@
+ITEM.name = "Machete"
+ITEM.model = "models/mosi/fallout4/props/weapons/melee/machete.mdl"
+ITEM.description = "A thick bladed weapon made for chopping."
+ITEM.longdesc = "Damage Rating: 3\nFire Rate: 1\nDamage Effects: Piercing 1"
+ITEM.category = "junk"
+ITEM.flag = "1"
+ITEM.price = 5
+ITEM.width = 1
+ITEM.height = 1

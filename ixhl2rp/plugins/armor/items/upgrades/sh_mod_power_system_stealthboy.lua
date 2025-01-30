@@ -1,0 +1,12 @@
+ITEM.name = "Power Armor Stealth Boy"
+ITEM.description = "A built in Stealth Boy, for when you want to be sneaky in your massive armor suit.\nConsume 1 Fusion Core charge to activate a Stealth Boy, once per scene"
+ITEM.category = "Upgrades"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 100
+ITEM.slot = 3
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 1
+ITEM.isArmorUpg = true

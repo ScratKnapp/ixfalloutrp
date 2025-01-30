@@ -1,0 +1,12 @@
+ITEM.name = "Power Armor Internal Database"
+ITEM.description = "An easily accessed database for storing knowledge, good for keeping useful info on hand at all times.\nRe-roll 1d20 on any skill checks using Intelligence"
+ITEM.category = "Upgrades"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 100
+ITEM.slot = 3
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 1
+ITEM.isArmorUpg = true

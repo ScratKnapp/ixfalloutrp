@@ -1,0 +1,9 @@
+ITEM.name = "Pool Cue"
+ITEM.model = "models/mosi/fallout4/props/weapons/melee/poolcue.mdl"
+ITEM.description = "A solid thwappin' stick."
+ITEM.longdesc = "Damage Rating: 3\nFire Rate: 1\nQualities: Two-Handed"
+ITEM.category = "junk"
+ITEM.flag = "1"
+ITEM.price = 5
+ITEM.width = 1
+ITEM.height = 1

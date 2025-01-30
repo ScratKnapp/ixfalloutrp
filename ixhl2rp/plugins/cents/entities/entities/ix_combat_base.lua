@@ -47,6 +47,10 @@ function ENT:BasicSetup()
 
         self:SetModel(model)
 
+        if self.skin then
+            self:SetBodygroups("2")
+        end 
+
         self:SetUseType(SIMPLE_USE)
     end
 
@@ -432,7 +436,7 @@ function ENT:getSaveData()
 
 	saveData.name = self:Name() or "Name Corrupted"
 
-	saveData.desc = self:Desc() or "Desc Corrupted"
+	saveData.desc = self:GetDescription() or "Desc Corrupted"
 
 	--saveData.hp = self:getHP()
 

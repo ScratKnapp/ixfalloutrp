@@ -1,0 +1,12 @@
+ITEM.name = "Power Armor Tesla Coils"
+ITEM.description = "Some tesla coils to attach to your armor, making you simply shocking to be near.\nWhen an enemy makes a melee or unarmed attack against you, they suffer 4 combat dice of Energy damage"
+ITEM.category = "Upgrades"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 100
+ITEM.slot = 3
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 2
+ITEM.isArmorUpg = true

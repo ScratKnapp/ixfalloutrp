@@ -1,0 +1,9 @@
+ITEM.name = "Bow"
+ITEM.model = "models/weapons/w_huntingbow.mdl"
+ITEM.description = "A classic bow. Primitive, but still deadly and often ammo efficient."
+ITEM.longdesc = "Damage Rating: 3\nFire Rate: 3\nQualities: Two-Handed, Recoil (6), Suppressed"
+ITEM.category = "junk"
+ITEM.flag = "1"
+ITEM.price = 5
+ITEM.width = 1
+ITEM.height = 1

@@ -1,0 +1,12 @@
+ITEM.name = "Power Armor Medic Pump"
+ITEM.description = "An automated injector for use when injured. Bring Your Own Stimpak.\nIf you are below 1/2 your maximum health, use one Stimpak you have instantly to recover 3 HP or treat 1 injury"
+ITEM.category = "Upgrades"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 100
+ITEM.slot = 3
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 2
+ITEM.isArmorUpg = true

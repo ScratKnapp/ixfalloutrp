@@ -1,0 +1,9 @@
+ITEM.name = "Wood Right Arm"
+ITEM.model = "models/props_c17/BriefCase001a.mdl"
+ITEM.description = "A wooden arm piece. Better than nothing!"
+ITEM.longdesc = "Coverage: Right Arm\nPhysical: 1\nEnergy: 0\n Radiation: 0"
+ITEM.category = "junk"
+ITEM.flag = "1"
+ITEM.price = 5
+ITEM.width = 1
+ITEM.height = 1

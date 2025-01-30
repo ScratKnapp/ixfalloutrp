@@ -62,6 +62,43 @@ function ix.dice.Roll(rolltext, client)
 	return result, newtext
 end
 
+function ix.dice.combatDice(amount)
+
+	local result =
+	{
+		total = 0,
+		effects = 0,
+		string = ""
+	}
+	
+	for i = amount, 1, -1 do
+       local roll = math.random(1,6)
+
+		if roll == 1 then 
+			result.total = result.total + 1
+			result.string = result.string .. "1,"
+		elseif roll == 2 then
+			result.total = result.total + 2
+			result.string = result.string .. "2,"
+	   	elseif roll == 3 then
+			result.string = result.string .. "0,"
+		elseif roll == 4 then
+			result.string = result.string .. "0,"
+		elseif roll == 5 then
+			result.total = result.total + 1
+			result.effects = result.effects + 1
+			result.string = result.string .. "1+Effect,"
+		elseif roll == 6 then
+			result.total = result.total + 1
+			result.effects = result.effects + 1
+			result.string = result.string .. "1+Effect,"
+		end 
+    end
+
+	return result
+	
+end
+
 -- [[ LOCAL FUNCTIONS ]] --
 --[[
 	FUNCTION: rollDice

@@ -1,0 +1,12 @@
+ITEM.name = "Power Armor Sensor Array"
+ITEM.description = "A modification for power armor helmets, adding an array of motion and sound sensors for staying alert.\nRe-roll 1d20 on all skill checks using Perception"
+ITEM.category = "Upgrades"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 100
+ITEM.slot = 3
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 1
+ITEM.isArmorUpg = true

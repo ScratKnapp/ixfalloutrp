@@ -1,0 +1,12 @@
+ITEM.name = "Power Armor Rusty Knuckles"
+ITEM.description = "Give your enemy the gift of tetantus!\nUnarmed attacks (fists only) gain Persistent damage effect"
+ITEM.category = "Upgrades"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 50
+ITEM.slot = 3
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 1
+ITEM.isArmorUpg = true

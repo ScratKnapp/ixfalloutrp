@@ -1,0 +1,9 @@
+ITEM.name = "Hunter's Pelt Outfit"
+ITEM.model = "models/props_c17/BriefCase001a.mdl"
+ITEM.description = "A lightweight pelt with almost full-body coverage."
+ITEM.longdesc = "Coverage: Chest, Arms, Legs\nPhysical: 2\nEnergy: 2\n Radiation: 0\nSpecial Qualities: Shadowed"
+ITEM.category = "junk"
+ITEM.flag = "1"
+ITEM.price = 5
+ITEM.width = 1
+ITEM.height = 1

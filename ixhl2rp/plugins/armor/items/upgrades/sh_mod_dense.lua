@@ -1,0 +1,12 @@
+ITEM.name = "Dense"
+ITEM.description = "Add some extra material specifically meant to resist explosive shockwaves and shrapnel even better.\n+4 to all damage resistances on this armor piece against weapons with the Blast quality"
+ITEM.category = "Upgrades"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 1
+ITEM.slot = 2
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 4
+ITEM.isArmorUpg = true

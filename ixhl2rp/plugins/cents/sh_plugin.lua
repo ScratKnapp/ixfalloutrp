@@ -13,6 +13,7 @@ ix.util.Include("sh_centcommands.lua")
 ix.util.Include("sh_centchat.lua")
 ix.util.Include("sh_centproperties.lua")
 ix.util.Include("sv_plugin.lua")
+ix.util.Include("sh_centsave.lua")
 
 PLUGIN.savedEnts = PLUGIN.savedEnts or {}
 

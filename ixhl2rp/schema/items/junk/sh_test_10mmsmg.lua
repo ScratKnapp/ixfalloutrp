@@ -1,0 +1,9 @@
+ITEM.name = "10mm SMG"
+ITEM.model = "models/weapons/10mmsmg.mdl"
+ITEM.description = "A 10mm SMG. Quite punchy and good against soft targets, but harder to control."
+ITEM.longdesc = "Damage Rating: 3\nFire Rate: 5\nRange: Close\nQualities: Close Quarters, Reliable, Inaccurate\nDamage Effects: Burst"
+ITEM.category = "junk"
+ITEM.flag = "1"
+ITEM.price = 5
+ITEM.width = 1
+ITEM.height = 1

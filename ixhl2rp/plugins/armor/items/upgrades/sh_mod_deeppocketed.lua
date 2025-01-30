@@ -1,0 +1,13 @@
+ITEM.name = "Deep Pocketed"
+ITEM.description = "Embrace your inner chronic hoarder and sew on some extra deep pockets to store your goodies. n\n+20 Carrying Capacity"
+ITEM.category = "Upgrades"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 5
+ITEM.slot = 2
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 2
+ITEM.isArmorUpg = true
+ITEM.weightBonus = 20
