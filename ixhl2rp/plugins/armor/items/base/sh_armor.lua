@@ -433,6 +433,12 @@ ITEM.functions.Equip = {
 			end
 		end
 
+		if item.powerFrame then
+			local strengthtogive = 11 - character:GetAttribute("strength")
+			if strengthtogive > 11 then strengthtogive = 0 end 
+			character:AddBoost("powerassist", "strength", strengthtogive)
+		end
+
 		
 
 	
@@ -496,10 +502,26 @@ end
 
 function ITEM:OnEquipped()
 
+	local character = self.player:GetCharacter()
+	if self.powerFrame then
+		local strengthtogive = 11 - character:GetAttribute("strength")
+		if strengthtogive > 11 then strengthtogive = 0 end 
+		character:AddBoost("powerassist", "strength", strengthtogive)
+		character:SetData("carry", ix.weight.CalculateWeight(character))
+	end
+
+
 end
 
 function ITEM:OnUnequipped()
+	local character = self.player:GetCharacter()
 
+	if self.powerFrame then
+		character:RemoveBoost("powerassist", "strength")
+		character:SetData("carry", ix.weight.CalculateWeight(character))
+	end
+	character:RemoveBoost("powerassist", "strength")
+	character:SetData("carry", ix.weight.CalculateWeight(character))
 end
 
 ITEM.functions.Inspect = {
@@ -653,7 +675,6 @@ end
 
 function ITEM:GetWeight()
 	local weight = self.weight
-
 	local mods = self:GetData("mod", {})
 
 	if mods then
@@ -663,6 +684,17 @@ function ITEM:GetWeight()
 				weight = weight + moditem.weight
 			end 
 		end
+	end
+
+	-- Ignore weight of PA frames and armor pieces if the frame is equipped
+	if self.player then 
+		local character = self.player:GetCharacter()
+
+		if character:InPowerArmor()then
+			
+			if self.powerArmor then weight = 0 end
+			if self.powerFrame then weight = 0 end
+		end 
 	end
 
 	return weight

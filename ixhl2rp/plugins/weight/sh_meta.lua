@@ -2,7 +2,7 @@
 local ITEM = ix.meta.item or {}
 
 function ITEM:GetWeight()
-	return self:GetData("weight", nil) or self.weight or nil
+	local weight = self:GetData("weight", nil) or self.weight or nil
 end
 
 ix.meta.item = ITEM

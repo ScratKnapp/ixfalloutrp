@@ -1,5 +1,5 @@
 ITEM.name = "T-51 Helmet"
-ITEM.model = "models/fallout/apparel/power_armor.mdl"
+ITEM.model = "models/fallout/apparel/t51bpowerhelmet.mdl"
 ITEM.description = "A solid pre-war power armor part."
 ITEM.longdesc = "T-51 was the most widely issued set of armor prior to the War - quite protective and a little lighter. If the average wastelander ever sees it at all, it's usually in the hands of Brotherhood Paladins who originated from the main Lost Hills chapter."
 ITEM.width = 2
