@@ -1,0 +1,13 @@
+ITEM.name = "Suppressor"
+ITEM.description = "A suppressor that reduces a weapon's firing noise, making it suitable for stealth missions."
+ITEM.category = "Attachments"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 45
+ITEM.slot = 6
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 2
+ITEM.prefix = "Suppressed"
+ITEM.qualities = {"Suppressed"}

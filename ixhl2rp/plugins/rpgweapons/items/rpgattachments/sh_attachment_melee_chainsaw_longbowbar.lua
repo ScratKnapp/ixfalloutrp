@@ -1,0 +1,13 @@
+ITEM.name = "Chainsaw Long Bow Bar"
+ITEM.description = "A replacement bar that, instead of a straight blade, is in a curved, bow-like shape, generally used for cutting through thin brush, with an extended reach."
+ITEM.category = "Attachments"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 60
+ITEM.slot = 1
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 3
+ITEM.prefix = "Long Bow Bar"
+ITEM.effects = {"Persistent"}

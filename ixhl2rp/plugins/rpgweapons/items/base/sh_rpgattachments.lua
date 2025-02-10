@@ -18,10 +18,11 @@ ITEM.isWeaponUpg = true
 
 -- 1: Receiver, Capacitor, or Unique
 -- 2: Barrel
--- 3: Stock
--- 4: Magazine
--- 5: Sights
--- 6: Muzzle
+-- 3: Magazine
+-- 4: Grip
+-- 5: Stock
+-- 6: Sight
+-- 7: Muzzle
 
 local function attachment(item, data, combine)
     local client = item.player
@@ -167,11 +168,42 @@ function ITEM:GetDescription()
 	if self.stats then
 		str = str .. "\n"
 		for k, v in pairs(self.stats) do
+
+
 			if v > 0 then 
-				str = str .. "\n" .. k .. ":" .. v
+                if k == "Range" then v = "Increases Range by " .. v .. " step" end 
+				str = str .. "\n" .. k .. ": " .. v
 			end 
 		end
 	end 
+
+    if self.qualities then 
+        str = str .. "\n\nAdds Qualities:"
+        for k, v in pairs(self.qualities) do
+			str = str .. "\n" .. v
+		end
+    end 
+
+    if self.effects then 
+        str = str .. "\n\nAdds Effects:"
+        for k, v in pairs(self.effects) do
+			str = str .. "\n" .. v
+		end
+    end 
+    
+    if self.removequalities then 
+        str = str .. "\n\nRemoves Qualities:"
+        for k, v in pairs(self.removequalities) do
+			str = str .. "\n" .. v
+		end
+    end 
+
+    if self.removeeffects then 
+        str = str .. "\n\nRemoves Effects:"
+        for k, v in pairs(self.removeeffects) do
+			str = str .. "\n" .. v
+		end
+    end 
 
 
 	return str

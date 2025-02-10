@@ -1,0 +1,12 @@
+ITEM.name = "Missile Launcher Targeting Computer"
+ITEM.description = "A sophisticated targeting computer for missile launchers. Let the beepy box do the aiming for you!\nWhen you Aim at a target, target does not get any protection from Cover, and the Aim bonus applies to the next attack against them from any point the next turn onward"
+ITEM.category = "Attachments"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 293
+ITEM.slot = 2
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 6
+ITEM.prefix = "Targeting"

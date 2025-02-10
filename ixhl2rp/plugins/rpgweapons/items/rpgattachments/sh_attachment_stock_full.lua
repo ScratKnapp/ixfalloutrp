@@ -1,0 +1,13 @@
+ITEM.name = "Full Stock"
+ITEM.description = "A full-size stock for making select weapons more steady, but also requiring a proper rifle-grip to use."
+ITEM.category = "Attachments"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 10
+ITEM.slot = 4
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 1
+ITEM.removequalities = {"Inaccurate"}
+ITEM.qualities = {"Two-Handed"}

@@ -1,0 +1,14 @@
+ITEM.name = "Marksman's Stock"
+ITEM.description = "An improved stock meant for landing more precise shots."
+ITEM.category = "Attachments"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 20
+ITEM.slot = 4
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 2
+ITEM.prefix = "Marksman's"
+ITEM.removequalities = {"Inaccurate"}
+ITEM.qualities = {"Two-Handed", "Accurate"}

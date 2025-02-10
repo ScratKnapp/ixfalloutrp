@@ -70,8 +70,10 @@ function ix.dice.combatDice(amount)
 		effects = 0,
 		string = ""
 	}
+
 	
-	for i = amount, 1, -1 do
+	
+	for i=number, 1 ,-1 do 
        local roll = math.random(1,6)
 
 		if roll == 1 then 
@@ -93,6 +95,36 @@ function ix.dice.combatDice(amount)
 			result.effects = result.effects + 1
 			result.string = result.string .. "1+Effect,"
 		end 
+    end
+
+	return result
+	
+end
+
+function ix.dice.locationDice(amount)
+
+	local result = ""
+
+	
+	
+	for i=amount, 1 ,-1 do 
+       local number = math.random(1,20)
+
+	   	if number >= 1 and number <= 2 then
+        	result = result .. "Head,"
+    	elseif number >= 3 and number <= 8 then
+        	result = result .. "Torso,"
+    	elseif number >= 9 and number <= 11 then
+        	result = result .. "Left Arm,"
+    	elseif number >= 12 and number <= 14 then
+        	result = result .. "Right Arm,"
+    	elseif number >= 15 and number <= 17 then
+			result = result .. "Left Leg,"
+    	elseif number >= 18 and number <= 20 then
+        	result = result .. "Right Leg,"
+    	else
+        	return "Error"
+    	end
     end
 
 	return result

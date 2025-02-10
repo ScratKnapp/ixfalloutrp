@@ -1,0 +1,13 @@
+ITEM.name = "Bull Barrel"
+ITEM.description = "An extended barrel for six-shooters that is much tougher and less prone to malfunction."
+ITEM.category = "Attachments"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 10
+ITEM.slot = 2
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 0
+ITEM.prefix = "Bull Barrel"
+ITEM.effects = {"Reliable"}

@@ -1,0 +1,13 @@
+ITEM.name = "Gatling Gun Comfort Grip"
+ITEM.description = "An comfy grip for for a hand-crank gatling, making it far easier to handle."
+ITEM.category = "Attachments"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 90
+ITEM.slot = 3
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 3
+ITEM.prefix = "Comfort Grip"
+ITEM.removqualities = {"Recoil (6)"}

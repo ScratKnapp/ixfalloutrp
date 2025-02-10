@@ -1,0 +1,13 @@
+ITEM.name = "Short Scope"
+ITEM.description = "An optic with a slight zoom, allowing for more accurate shots at standard engagement range."
+ITEM.category = "Attachments"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 11
+ITEM.slot = 5
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 1
+ITEM.prefix = "Scoped"
+ITEM.qualities = {"Accurate"}

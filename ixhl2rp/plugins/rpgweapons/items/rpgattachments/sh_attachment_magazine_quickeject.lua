@@ -1,0 +1,13 @@
+ITEM.name = "Quick-Eject Magazine"
+ITEM.description = "A standard magazine with improved clamps that make it quicker to eject, and much less likely to become stuck in the magwell."
+ITEM.category = "Attachments"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 8
+ITEM.slot = 3
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 0
+ITEM.prefix = "Quick-Eject"
+ITEM.qualities = {"Reliable"}

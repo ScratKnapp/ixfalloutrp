@@ -746,7 +746,7 @@ function ITEM:GetHP()
 end
 
 function ITEM:GetMaxHP()
-	local basemax = self:GetData("HP")
+	local basemax = self.armorHP
 	local modmax = 0
 	
 	local mods = self:GetData("mod")

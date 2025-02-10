@@ -1,0 +1,14 @@
+ITEM.name = "Sawed Off Barrel"
+ITEM.description = "Taking a saw to a double-barrel shortens the barrel considerably, lightening it and making it more usable in extreme close quarters."
+ITEM.category = "Attachments"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 3
+ITEM.slot = 2
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = -2
+ITEM.prefix = "Sawed Off"
+ITEM.removequalities = {"Two-Handed"}
+ITEM.qualities = {"Close Quarters"}

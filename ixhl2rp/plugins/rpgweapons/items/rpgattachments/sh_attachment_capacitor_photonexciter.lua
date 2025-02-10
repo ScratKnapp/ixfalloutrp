@@ -1,0 +1,13 @@
+ITEM.name = "Photon Exciter"
+ITEM.description = "An energy gun capacitor modification that modifies the intensity of projectiles, allowing for potentially more damage."
+ITEM.category = "Attachments"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 30
+ITEM.slot = 1
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 0
+ITEM.prefix = "Excited"
+ITEM.effects = {"Vicious"}

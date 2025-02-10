@@ -1,0 +1,13 @@
+ITEM.name = "Comfort Grip"
+ITEM.description = "A custom grip specifically made to fit your hand comfortably, making it a little easier to aim."
+ITEM.category = "Attachments"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 6
+ITEM.slot = 3
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 0
+ITEM.prefix = "Comfort"
+ITEM.removequalities = {"Inaccurate"}

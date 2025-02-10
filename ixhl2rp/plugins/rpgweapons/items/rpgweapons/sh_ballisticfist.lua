@@ -1,0 +1,21 @@
+ITEM.name = "Ballistic Fist" 
+ITEM.description = "A shotgun puncher."
+ITEM.longdesc = "An iconic weapon that can load a single 12 gauge shell and deliver it point blank on impact.\nMust be loaded with a Minor action after each strike, or else it does your default Unarmed damage"
+ITEM.model = "models/halokiller38/fallout/weapons/melee/ballisticfist.mdl" 
+ITEM.class = "weapon_ballisticfist"
+ITEM.weaponCategory = "melee"
+ITEM.ammo = "fusioncell"
+ITEM.width = 2
+ITEM.height = 2
+ITEM.skill = "unarmed"
+ITEM.weight = 6
+ITEM.price = 150
+ITEM.rarity = 4
+ITEM.effects = {"Stun", "Vicious"}
+ITEM.acceptedMods = {}
+ITEM.stats = {
+	["Damage"] = 6,
+	["Range"] = 0,
+	["Rate Of Fire"] = 1,
+	["Ammo Per Shot"] = 1,
+}

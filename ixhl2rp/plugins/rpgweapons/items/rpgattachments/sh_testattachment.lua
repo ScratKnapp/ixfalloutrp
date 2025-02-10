@@ -11,6 +11,7 @@ ITEM.flag = "4"
 ITEM.weight = 0
 ITEM.isArmorUpg = true
 ITEM.prefix = "Ballistic"
+ITEM.effects = {"Spread"}
 ITEM.removequalities = {"Reliable"}
 ITEM.stats = {
 	["Damage"] = 0,

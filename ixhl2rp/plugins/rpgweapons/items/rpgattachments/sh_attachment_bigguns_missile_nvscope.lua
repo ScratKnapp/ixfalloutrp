@@ -1,0 +1,13 @@
+ITEM.name = "Missile Launcher Night Vision Scope"
+ITEM.description = "A scope for easier target acquisition, even in the dark."
+ITEM.category = "Attachments"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 248
+ITEM.slot = 2
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 6
+ITEM.prefix = "Night Vision"
+ITEM.effects = {"Accurate", "Night Vision"}

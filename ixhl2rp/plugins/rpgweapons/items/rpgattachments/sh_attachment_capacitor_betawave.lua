@@ -1,0 +1,13 @@
+ITEM.name = "Beta Wave Tuner"
+ITEM.description = "An energy gun capacitor modification that makes projectiles more likely to ignite flammable clothing, setting the target on fire."
+ITEM.category = "Attachments"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 30
+ITEM.slot = 1
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 0
+ITEM.prefix = "Incendiary"
+ITEM.effects = {"Persistent"}

@@ -1,0 +1,12 @@
+ITEM.name = "Gatling Laser Reflex Sight"
+ITEM.description = "A sturdy reflex designed to withstand the heat of hundreds of energy beams firing upon the weapon within a single minute without becoming misaligned."
+ITEM.category = "Attachments"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 169
+ITEM.slot = 3
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 1
+ITEM.prefix = "Tactical"

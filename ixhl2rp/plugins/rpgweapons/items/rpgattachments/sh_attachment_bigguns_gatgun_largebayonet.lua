@@ -1,0 +1,11 @@
+ITEM.name = "Gatling Gun Large Bayonet"
+ITEM.description = "A big ole bayonet roughly the size of a sword, just as the founding fathers intended.\nMelee weapon, deals 5 damage with Piercing 1 effect."
+ITEM.category = "Attachments"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 18
+ITEM.slot = 5
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 5

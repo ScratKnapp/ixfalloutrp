@@ -1,0 +1,21 @@
+ITEM.name = "Displacer Glove" 
+ITEM.description = "A sonic punching weapon."
+ITEM.longdesc = "A curious weapon that produces a localized sonic boom on impact, easily rattling even strong foes."
+ITEM.model = "models/models/fallout/pushy.mdl" 
+ITEM.class = "weapon_ballisticfist"
+ITEM.weaponCategory = "melee"
+ITEM.ammo = "fusioncell"
+ITEM.width = 2
+ITEM.height = 2
+ITEM.skill = "unarmed"
+ITEM.weight = 6
+ITEM.price = 175
+ITEM.rarity = 4
+ITEM.effects = {"Stun", "Piercing 1"}
+ITEM.acceptedMods = {}
+ITEM.stats = {
+	["Damage"] = 6,
+	["Range"] = 0,
+	["Rate Of Fire"] = 1,
+	["Ammo Per Shot"] = 1,
+}

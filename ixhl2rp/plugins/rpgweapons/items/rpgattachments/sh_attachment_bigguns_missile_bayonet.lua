@@ -1,0 +1,12 @@
+ITEM.name = "Missile Launcher Bayonet"
+ITEM.description = "A bayonet for a missile launcher, because the ideal place to be with this thing is right at point blank.\nMelee weapons, deals 4 damage with Piercing 1 effect"
+ITEM.category = "Attachments"
+ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 30
+ITEM.slot = 3
+ITEM.isUpgrade = true
+ITEM.flag = "4"
+ITEM.weight = 1
+ITEM.prefix = "Bayoneted"
