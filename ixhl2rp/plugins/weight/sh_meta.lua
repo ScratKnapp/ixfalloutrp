@@ -45,7 +45,20 @@ function CHAR:GetMaxCarry()
 		
 	end
 
-	return base + strbonus + itembonus
+	local perkbonus = 0
+	if self:GetFeats()["strongback"] then
+        perkbonus = perkbonus + 25 
+    end
+
+	if self:GetFeats()["strongback2"] then
+        perkbonus = perkbonus + 25 
+    end
+	
+	if self:GetFeats()["strongback3"] then
+        perkbonus = perkbonus + 25 
+    end
+
+	return base + strbonus + itembonus + perkbonus
 
 end 
 

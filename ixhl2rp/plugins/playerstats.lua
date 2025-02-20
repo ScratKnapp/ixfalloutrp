@@ -10,7 +10,29 @@ function charMeta:GetMaxHP()
     local endboost = self:GetAttribute("endurance")
     local luckboost = self:GetAttribute("luck")
 
-    return endboost + luckboost
+    local perkboost = 0
+
+    if self:GetFeat("lifegiver") then
+        perkboost = perkboost + endboost 
+    end
+
+    if self:GetFeat("lifegiver2") then
+        perkboost = perkboost + endboost 
+    end
+
+    if self:GetFeat("lifegiver3") then
+        perkboost = perkboost + endboost 
+    end
+
+    if self:GetFeat("lifegiver4") then
+        perkboost = perkboost + endboost 
+    end
+
+    if self:GetFeat("lifegiver5") then
+        perkboost = perkboost + endboost 
+    end
+
+    return endboost + luckboost + perkboost
 end
 
 function charMeta:GetHP()
@@ -52,7 +74,48 @@ function charMeta:GetAreaResistance(area, type)
 
     local armorboost = self:GetLocationArmor(area, type)
 
-    return armorboost
+    local perksboost = 0
+
+    if type == "Physical" then
+        if self:GetFeat("toughness") then
+            perksboost = perksboost + 1
+        end
+
+        if self:GetFeat("toughness2") then
+            perksboost = perksboost + 1
+        end
+
+        if self:GetFeat("barbarian") and not self:InPowerArmor() then
+            
+            local strength = self:GetAttribute("strength")
+
+            if strength == 7 or strength == 8 then perksboost = perksboost + 1 end 
+            if strength == 9 or strength == 10 then perksboost = perksboost + 2 end 
+            if strength >= 11 then perksboost = perksboost + 3 end 
+        end
+    end
+
+    if type == "Energy" then
+        if self:GetFeat("refractor") then
+            perksboost = perksboost + 1
+        end
+
+        if self:GetFeat("refractor2") then
+            perksboost = perksboost + 1
+        end
+    end
+
+    if type == "Radiation" then
+        if self:GetFeat("radresistance") then
+            perksboost = perksboost + 1
+        end
+
+        if self:GetFeat("radresistance2") then
+            perksboost = perksboost + 1
+        end
+    end
+
+    return armorboost + perksboost
 
 end 
 
@@ -61,6 +124,27 @@ ix.command.Add("Status", {
     description = "Check your current HP and other statuses.",
     OnRun = function(self, client)
         local char = client:GetCharacter()
+        client:Notify("Health: " .. char:GetHP() .. "/" .. char:GetMaxHP())
+        client:Notify("Luck Points: " .. char:GetLuckPoints() .. "/" .. char:GetMaxLuckPoints())
+        client:Notify("Damage Resistance: (Physical/Energy/Radiation)")
+        client:Notify("Head: " .. char:GetAreaResistance("head", "Physical") .. "/" .. char:GetAreaResistance("head", "Energy") .. "/" .. char:GetAreaResistance("head", "Radiation"))
+        client:Notify("Chest: " .. char:GetAreaResistance("chest", "Physical") .. "/" .. char:GetAreaResistance("chest", "Energy") .. "/" .. char:GetAreaResistance("chest", "Radiation"))
+        client:Notify("Left Arm: " .. char:GetAreaResistance("armleft", "Physical") .. "/" .. char:GetAreaResistance("armleft", "Energy") .. "/" .. char:GetAreaResistance("armleft", "Radiation"))
+        client:Notify("Right Arm: " .. char:GetAreaResistance("armright", "Physical") .. "/" .. char:GetAreaResistance("armright", "Energy") .. "/" .. char:GetAreaResistance("armright", "Radiation"))
+        client:Notify("Left Leg: " .. char:GetAreaResistance("legleft", "Physical") .. "/" .. char:GetAreaResistance("legleft", "Energy") .. "/" .. char:GetAreaResistance("legleft", "Radiation"))
+        client:Notify("Right Leg: " .. char:GetAreaResistance("legright", "Physical") .. "/" .. char:GetAreaResistance("legright", "Energy") .. "/" .. char:GetAreaResistance("legright", "Radiation"))
+     
+
+    end
+})
+
+ix.command.Add("CharGetStatus", {
+    arguments = {ix.type.character},
+    adminOnly = true,
+    description = "Get status of given character.",
+    OnRun = function(self, client, target)
+        local char = target
+        client:Notify("Stats For: " .. target:GetName())
         client:Notify("Health: " .. char:GetHP() .. "/" .. char:GetMaxHP())
         client:Notify("Luck Points: " .. char:GetLuckPoints() .. "/" .. char:GetMaxLuckPoints())
         client:Notify("Damage Resistance: (Physical/Energy/Radiation)")
@@ -98,7 +182,7 @@ ix.command.Add("CharTakeHP", {
 })
 
 ix.command.Add("rest", {
-    description = "Heal yourself based on your Stamina and recover your Willpower. Can be used once every 20 hours.",
+    description = "Restore your health and Luck Points, and attempt to recover from Injuries.",
     OnRun = function(self, client)
         local character = client:GetCharacter()
         local currentTime = os.time()
@@ -109,14 +193,10 @@ ix.command.Add("rest", {
             return "You can only use this command once every 20 hours. Please wait " .. remainingTime .. " minutes."
         end
 
-        local healamount = character:GetAttribute("stamina") + 1
-        character:RestoreHP(healamount)
-        character:SetData("SpentWP", 0)
-        client:Notify("Restored " .. healamount .. "HP and filled Willpower.")
-        if character:HasClass("Medic") then
-            character:SetData("FreeHeals", 0)
-            client:Notify("Gave free uses of /medicheal according to Medic class level.")
-        end
+        character:RestoreHP(character:GetMaxHP())
+        character:RestoreLuckPoints()
+        client:Notify("Restored Health and Luck Points.")
+       
 
         character:SetData("lastRest", currentTime)
     end
